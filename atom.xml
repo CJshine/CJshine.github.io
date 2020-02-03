@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>陈剑的博客</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-02-03T03:43:42.323Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>陈剑</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>02重新设计数据库</title>
+    <link href="http://yoursite.com/2020/02/02/02%E9%87%8D%E6%96%B0%E8%AE%BE%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <id>http://yoursite.com/2020/02/02/02%E9%87%8D%E6%96%B0%E8%AE%BE%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%BA%93/</id>
+    <published>2020-02-02T10:35:44.000Z</published>
+    <updated>2020-02-03T03:43:42.323Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>摘要：今天根着网上的一个实战项目类比发现我之前做的一些东西还不够完善，底层数据库的设计也很简单，只能是把简单的业务功能实现了，远远没有达到实际中的项目需要，尤其是管理员界面，离实际使用还有很大距离。</p></blockquote><a id="more"></a><p>管理界面在学习阶段是我们自己经常用的，我们作为研发人员知道自己想要什么，怎么使用。但是实际交付工作，管理端往往是交付给完全没有软件设计经验的管理人员使用，他们也需要像普通用户一样简单易懂的管理界面。因此要把后台也是值得更加精细化，便于管理员使用。</p><p><img src="/2020/02/02/02重新设计数据库/1.png" alt></p><p>这是我的网站首页，现在这个网站的轮播图只能通过修改代码和后台图片实现。通过网上学习项目，我第一次接触到后台管理可通过上传图片，指定某张具体的图片进行管理首页，当然也包括后面的销量图，活动图等等，这就需要管理端的数据库更加精细化，设计更多的表对需要指定的内容进行一一对应。所以我今天对照视频把自己的数据库进行了重新设计。加入了之前没有的对前端页面显示的管理，又增加了对产品的一些细节化管理，比如详情图片管理，简介管理等等。</p><p>之前对于管理端的理解比较简单，今天对管理端又有了重新的认识，管理端也是普通用户的一端，所有用户接触到的一端都应该设计的简单，方便，易用，易于理解。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;摘要：今天根着网上的一个实战项目类比发现我之前做的一些东西还不够完善，底层数据库的设计也很简单，只能是把简单的业务功能实现了，远远没有达到实际中的项目需要，尤其是管理员界面，离实际使用还有很大距离。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="毕业设计" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+      <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>&#39;01毕设学习进度记录&#39;</title>
+    <link href="http://yoursite.com/2020/02/01/01%E6%AF%95%E8%AE%BE%E5%AD%A6%E4%B9%A0%E8%BF%9B%E5%BA%A6%E8%AE%B0%E5%BD%95/"/>
+    <id>http://yoursite.com/2020/02/01/01%E6%AF%95%E8%AE%BE%E5%AD%A6%E4%B9%A0%E8%BF%9B%E5%BA%A6%E8%AE%B0%E5%BD%95/</id>
+    <published>2020-02-01T10:39:27.000Z</published>
+    <updated>2020-02-03T03:43:02.985Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>摘要：寒假期间毕业设计进度记录。主要用于督促自己毕业设计的进度，也是对自己这个过程的一个记录，方便以后回顾。</p></blockquote><a id="more"></a>  <p>寒假前几天学习了近一个星期Django框架，过年几天没有学习。</p><p>今天是年后第一天开始做毕设，Django框架学习起来比较简单，虽然Django框架很大，学习周期比较长，但是借助于Django模板的方便性，学习起来还是很快，尤其是连接数据库的简单让我很惊讶，从Java到Python再到Django，连接数据库越来越趋于简单，可能以后的编程会越来越趋于 “拼接” 这种方向。</p><p>接下来几天的计划都是对Django框架的学习，以及对毕设项目的完善，下面简单描述一下毕设项目。</p><hr><h3 id="毕设项目介绍"><a href="#毕设项目介绍" class="headerlink" title="毕设项目介绍"></a>毕设项目介绍</h3><p>项目名称：<strong>文化衫定制平台的设计与实现</strong></p><ol><li><p>设计要求</p><p>文化衫定制平台的设计与实现要求学生独立设计文化衫交流社区，基于在线交互模式实现文化衫个性化定制、发布、销售、交流和推荐等功能。</p><p>(1)系统要求开发工具采用 Pycharm + Android SDK + MySQL + Tomcat等。</p><p>(2)要求系统界面设计美观，交互友好，操作方便。</p></li><li><p>设计内容</p><p>文化衫定制平台的角色包括平台管理员、制造销售商、设计师和会员用户等，系统分别为管理员、制造销售商、设计师和会员提供如下功能：</p><p>(1)管理员、销售制造商、设计师和会员的信息管理功能。</p><p>(2)基于交互模式的文化衫图案在线设计功能，并提供侵权举报功能。</p><p>(3)提供文化衫定制、销售功能，并基于文化衫销售数据提供数据分析与定价推荐功能。</p><p>(4)提供制造销售商、设计师和会员用户的积分预等级管理功能。</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;摘要：寒假期间毕业设计进度记录。主要用于督促自己毕业设计的进度，也是对自己这个过程的一个记录，方便以后回顾。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="毕业设计" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+      <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>欢 迎</title>
+    <link href="http://yoursite.com/2019/04/14/hello-world/"/>
+    <id>http://yoursite.com/2019/04/14/hello-world/</id>
+    <published>2019-04-14T02:34:44.993Z</published>
+    <updated>2020-02-02T03:10:54.394Z</updated>
+    
+    <content type="html"><![CDATA[<center>print(“Hello World”)</center><br><center>欢迎，这是我的第一篇博客！</center>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;center&gt;print(“Hello World”)&lt;/center&gt;&lt;br&gt;&lt;center&gt;欢迎，这是我的第一篇博客！&lt;/center&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>
