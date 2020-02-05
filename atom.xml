@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-05T10:45:33.025Z</updated>
+  <updated>2020-02-05T10:48:09.073Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,19 +21,15 @@
     <link href="http://yoursite.com/2020/02/05/05JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
     <id>http://yoursite.com/2020/02/05/05JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</id>
     <published>2020-02-05T09:37:38.000Z</published>
-    <updated>2020-02-05T10:45:33.025Z</updated>
+    <updated>2020-02-05T10:48:09.073Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>摘要：JavaScript，1995年由Brendan Eich设计产生，仅用时10天，网景公司想借Java的名气火一把，取名JavaScript ……</p></blockquote><h4 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h4><ol><li>变量本质是一个盒子，盒子里面记载着对象的内存地址，变量的意义就是方便我们去操作对象。</li></ol><ul><li>变量命名规范：<ul><li>可以由字母(<code>a-zA-Z</code>)，数字(<code>0-9</code>)，下划线(<code>_</code>)以及美元符号(<code>$</code>)组成</li><li>不能由数字开头</li><li>命名尽量用英文并且具有一定的含义</li><li>如果有多个英文单词, 后面单词的首字母大写</li><li>不能使用关键字</li><li>首字母不要大写，大写是有特殊含义的</li></ul></li></ul><ol start="2"><li>JavaScript的数据类型<ul><li>字符串(<code>String</code>)：比如”Hello World”；</li><li>数字(<code>Number</code>)：整数和浮点数；</li><li>布尔(<code>Boolean</code>)：true 和 false；</li><li><code>Null</code>: 表示空缺，即此处应该有一个值，但目前为空；</li><li><code>Undefined</code>: 表示未定义或不存在，即此处目前没有任何值；</li><li><code>Symbol</code>：Symbol 是 ES6 引入了一种新的原始数据类型，表示独一无二的值；</li><li>对象（<code>object</code>）：各种值组成的集合。</li><li>数组（<code>array</code>）：数组类型</li><li>函数（<code>function</code>）：函数数据类型</li></ul></li></ol><h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h4><ol><li>JavaScript严格区分大小写。</li><li>JavaScript不区分整数和浮点数，统一用Number表示，以下表示都合法：</li></ol><blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; 123; // 整数123</span><br><span class="line">&gt; 0.456; // 浮点数0.456</span><br><span class="line">&gt; 1.2345e3; // 科学计数法表示1.2345x1000，等同于1234.5</span><br><span class="line">&gt; -99; // 负数</span><br><span class="line">&gt; NaN; // NaN表示Not a Number，当无法计算结果时用NaN表示</span><br><span class="line">&gt; Infinity; // Infinity表示无限大，当数值超过了JavaScript的Number所能表示的最大值时，就表示为Infinity</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></blockquote><ol start="3"><li><p>关于相等运算符<code>==</code>。JavaScript在设计时，有两种比较运算符：</p><ul><li><p>第一种是<code>==</code>比较，它会自动转换数据类型再比较，很多时候，会得到非常诡异的结果；</p></li><li><p>第二种是<code>===</code>比较，它不会自动转换数据类型，如果数据类型不一致，返回<code>false</code>，如果一致，再比较。</p></li></ul><p>所以在进行比较的时候不要使用<code>==</code>比较，始终坚持使用<code>===</code>比较。</p></li></ol>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>摘要：JavaScript，1995年由Brendan Eich设计产生，仅用时10天，网景公司想借Java的名气火一把，取名JavaScript ……</p></blockquote><a id="more"></a><h4 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h4><ol><li>变量本质是一个盒子，盒子里面记载着对象的内存地址，变量的意义就是方便我们去操作对象。</li></ol><ul><li>变量命名规范：<ul><li>可以由字母(<code>a-zA-Z</code>)，数字(<code>0-9</code>)，下划线(<code>_</code>)以及美元符号(<code>$</code>)组成</li><li>不能由数字开头</li><li>命名尽量用英文并且具有一定的含义</li><li>如果有多个英文单词, 后面单词的首字母大写</li><li>不能使用关键字</li><li>首字母不要大写，大写是有特殊含义的</li></ul></li></ul><ol start="2"><li>JavaScript的数据类型<ul><li>字符串(<code>String</code>)：比如”Hello World”；</li><li>数字(<code>Number</code>)：整数和浮点数；</li><li>布尔(<code>Boolean</code>)：true 和 false；</li><li><code>Null</code>: 表示空缺，即此处应该有一个值，但目前为空；</li><li><code>Undefined</code>: 表示未定义或不存在，即此处目前没有任何值；</li><li><code>Symbol</code>：Symbol 是 ES6 引入了一种新的原始数据类型，表示独一无二的值；</li><li>对象（<code>object</code>）：各种值组成的集合。</li><li>数组（<code>array</code>）：数组类型</li><li>函数（<code>function</code>）：函数数据类型</li></ul></li></ol><h4 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h4><ol><li>JavaScript严格区分大小写。</li><li>JavaScript不区分整数和浮点数，统一用Number表示，以下表示都合法：</li></ol><blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; 123; // 整数123</span><br><span class="line">&gt; 0.456; // 浮点数0.456</span><br><span class="line">&gt; 1.2345e3; // 科学计数法表示1.2345x1000，等同于1234.5</span><br><span class="line">&gt; -99; // 负数</span><br><span class="line">&gt; NaN; // NaN表示Not a Number，当无法计算结果时用NaN表示</span><br><span class="line">&gt; Infinity; // Infinity表示无限大，当数值超过了JavaScript的Number所能表示的最大值时，就表示为Infinity</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></blockquote><ol start="3"><li><p>关于相等运算符<code>==</code>。JavaScript在设计时，有两种比较运算符：</p><ul><li><p>第一种是<code>==</code>比较，它会自动转换数据类型再比较，很多时候，会得到非常诡异的结果；</p></li><li><p>第二种是<code>===</code>比较，它不会自动转换数据类型，如果数据类型不一致，返回<code>false</code>，如果一致，再比较。</p></li></ul><p>所以在进行比较的时候不要使用<code>==</code>比较，始终坚持使用<code>===</code>比较。</p></li></ol>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;blockquote&gt;
+      &lt;blockquote&gt;
 &lt;p&gt;摘要：JavaScript，1995年由Brendan Eich设计产生，仅用时10天，网景公司想借Java的名气火一把，取名JavaScript ……&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h4 id=&quot;知识点&quot;&gt;&lt;a href=&quot;#知识点&quot; c
-      
     
     </summary>
     

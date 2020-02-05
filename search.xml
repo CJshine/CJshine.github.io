@@ -6,6 +6,7 @@
     <content><![CDATA[<blockquote>
 <p>摘要：JavaScript，1995年由Brendan Eich设计产生，仅用时10天，网景公司想借Java的名气火一把，取名JavaScript ……</p>
 </blockquote>
+<a id="more"></a>
 <h4 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h4><ol>
 <li>变量本质是一个盒子，盒子里面记载着对象的内存地址，变量的意义就是方便我们去操作对象。</li>
 </ol>
