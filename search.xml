@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>08Python爬虫</title>
+    <url>/2020/02/08/08Python%E7%88%AC%E8%99%AB/</url>
+    <content><![CDATA[<blockquote>
+<p>摘要：选取的图库是外国著名图片网站Unsplash，Unsplash的图质量一直很高，而且基于“CC0协议”，用户可以免费使用网站上的图片用于个人或商用。</p>
+<p>Unsplash：<a href="https://unsplash.com/" target="_blank" rel="noopener">https://unsplash.com/</a></p>
+</blockquote>
+<a id="more"></a>
+<p>努力整了一天的爬虫代码，分析页面数据，结果死在了用户代理上，无论怎么添加代理都报同样的错误。</p>
+<p>卒。</p>
+]]></content>
+      <categories>
+        <category>毕业设计</category>
+        <category>图库爬取</category>
+      </categories>
+      <tags>
+        <tag>毕业设计</tag>
+        <tag>爬虫</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>07完善图案定制功能</title>
     <url>/2020/02/07/07%E5%AE%8C%E5%96%84%E5%9B%BE%E6%A1%88%E5%AE%9A%E5%88%B6%E5%8A%9F%E8%83%BD/</url>
     <content><![CDATA[<blockquote>
