@@ -7,16 +7,15 @@
 <p>摘要：昨天爬了一半出现了代理问题，今天继续解决。。。</p>
 <p>ps: 今天成功爬取到图片，但是网速太慢了，爬取很耗时。</p>
 </blockquote>
+<a id="more"></a>
 <h4 id="打开unsplash分析网页"><a href="#打开unsplash分析网页" class="headerlink" title="打开unsplash分析网页"></a>打开<a href="https://unsplash.com/" target="_blank" rel="noopener">unsplash</a>分析网页</h4><p><img src="/2020/02/09/09Python爬取图库/1.png" alt="image-20200209182714684"></p>
 <p>可以看到这个网页属于动态网页，鼠标向下滑动图片是一组一组出来的，接下来就可以分析网页了</p>
-<p>F12打开开发者工具，点选一张图片，查看它的代码</p>
+<h4 id="分析网页代码"><a href="#分析网页代码" class="headerlink" title="分析网页代码"></a>分析网页代码</h4><p>F12打开开发者工具，点选一张图片，查看它的代码</p>
 <p><img src="/2020/02/09/09Python爬取图库/2.png" alt="image-20200209183627772"></p>
 <p>可以看到，图片 img 在一个 <code>div</code> 的 tag 里面，而且<code>class = “IEpfq”</code>，再看其他的图片发现都是一个样子的，那就可以用代码寻找网页里面IEpfq属性的div，然后进行下载。可以开始写代码了</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">img_class = soup.find_all(<span class="string">'div'</span>, &#123;<span class="string">"class"</span>: <span class="string">"IEpfq"</span>&#125;)        <span class="comment">#找到div里面有class ="IEpfq"的内容</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> img_list <span class="keyword">in</span> img_class:</span><br><span class="line">    imgs = img_list.find_all(<span class="string">'img'</span>)                         <span class="comment">#接着往下找到 img 标签</span></span><br><span class="line">    <span class="keyword">for</span> img <span class="keyword">in</span> imgs:</span><br><span class="line">        src = img[<span class="string">'src'</span>]                                    <span class="comment">#以"src"为 key，找到 value</span></span><br><span class="line">        r = requests.get(src, stream=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-<center>部分代码</center>
-
-<p>这个是最简单的图片爬取，只适用于测试，而且很容易被网站的反爬虫拦截。</p>
-<p>下午我使用了另一种方法爬取网站，从Unsplash的主页上可以看到，网站把图片按类别分类好了已经，有壁纸，纹理图案，自然，建筑，动物等等，这样爬取下来的图片很容易自动分类保存。</p>
+<p><center>部分代码</center><br>这个是最简单的图片爬取，只适用于测试，而且很容易被网站的反爬虫拦截。</p>
+<h4 id="自动翻页-amp-分类爬取"><a href="#自动翻页-amp-分类爬取" class="headerlink" title="自动翻页 &amp; 分类爬取"></a>自动翻页 &amp; 分类爬取</h4><p>下午我使用了另一种方法爬取网站，从Unsplash的主页上可以看到，网站把图片按类别分类好了已经，有壁纸，纹理图案，自然，建筑，动物等等，这样爬取下来的图片很容易自动分类保存。</p>
 <p>打开可以看到分类里面同样使用动态加载的方式加载图片。</p>
 <p><img src="/2020/02/09/09Python爬取图库/3.png" alt="image-20200209185757841"></p>
 <p>多组图片URL：</p>
@@ -26,9 +25,7 @@
 <p>可以看到动态加载是固定格式的，而且每一页包含10张图片，page=x ，这个x是递增的。</p>
 <p>这样就可以通过改变page的值来模拟页面滑动，再通过下载URL进行下载。</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">key = <span class="string">'\"download\":\"https://unsplash.com/photo/(.*?)/download\" '</span>       <span class="comment"># 下载图片的URL</span></span><br><span class="line">img_id = re.findall(key,r.text,re.S)                                      <span class="comment"># 提取图片的固定ID</span></span><br><span class="line">images = requests.get(<span class="string">'https://unsplash.com/photos/'</span>+img_id+<span class="string">'/download'</span>)  <span class="comment"># 获取图片数据</span></span><br></pre></td></tr></table></figure>
-<center>部分代码</center>
-
-<p>这样就很方便的爬取各类图片了，接下来就是考验网速的时候了。。。</p>
+<p><center>部分代码</center><br>这样就很方便的爬取各类图片了，接下来就是考验网速的时候了。。。</p>
 ]]></content>
       <categories>
         <category>毕业设计</category>
