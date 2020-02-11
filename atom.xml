@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-10T09:32:33.252Z</updated>
+  <updated>2020-02-11T11:09:50.385Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>11系统整合</title>
+    <link href="http://yoursite.com/2020/02/11/11%E7%B3%BB%E7%BB%9F%E6%95%B4%E5%90%88/"/>
+    <id>http://yoursite.com/2020/02/11/11%E7%B3%BB%E7%BB%9F%E6%95%B4%E5%90%88/</id>
+    <published>2020-02-11T09:56:09.000Z</published>
+    <updated>2020-02-11T11:09:50.385Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>摘要：今天主要把前两天做的内容进行整合，整合成一个完整的系统。</p></blockquote><a id="more"></a><p>整体来说没有什么太大的问题，只是整合过程中的一些语法问题和Python的库导入问题，第二个是为了提高后台的管理，引入了xadmin，也是今天在看视频的时候接触到的，之前一直使用admin来管理，xadmin相较于admin更加强大，管理功能也更完善。</p><ol><li><p>xadmin的安装</p><ul><li>pip  install  xadmin</li></ul></li><li><p>注册xadmin</p><ul><li><p>在settings.py中注册xadmin</p></li><li><p>然后在urls.py中配置url指向xadmin</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import xadmin</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(r&apos;^xadmin/&apos;, xadmin.site.urls),</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li></ul></li><li><p>将user app中的admin.py文件中注册的内容注释掉。</p></li></ol><p>PC端系统的开发暂时就到这里，下个阶段主要是移动端的开发，之前接触过ionic框架，使用起来感觉很不错，虽然是基于HTML5技术的移动APP开发框架，但是开发出来的应用很接近原生开发，所以明天开始学习ionic框架。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;摘要：今天主要把前两天做的内容进行整合，整合成一个完整的系统。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="毕业设计" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+      <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>10基于TensorFlow利用卷积神经网络训练图像样本数据</title>
