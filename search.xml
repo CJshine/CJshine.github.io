@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>12ionic框架的安装</title>
+    <url>/2020/02/12/12ionic%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<blockquote>
+<p>摘要：虽然之前接触过ionic框架，但是完全和小白一样，Angular也没有深入学习过。所以接下来的一段时候完全要重头开始学习，包括Angular，TypeScript等等。</p>
+</blockquote>
+<h4 id="1-node-js的安装"><a href="#1-node-js的安装" class="headerlink" title="1. node.js的安装"></a>1. node.js的安装</h4><p>简单的说 Node.js 就是运行在服务端的 JavaScript，如果有JavaScript基础的话学习起来会非常轻松。</p>
+<p><img src="/2020/02/12/12ionic框架的安装/1.png" alt="image-20200212172705539"></p>
+<p>在node.js官网上下载长期支持版本就可以，安装到本地。</p>
+<h4 id="2-安装ionic"><a href="#2-安装ionic" class="headerlink" title="2. 安装ionic"></a>2. 安装ionic</h4><p>Win + R 打开命令行工具：</p>
+<p><code>npm install -g cordova ionic</code></p>
+<p>安装结束之后执行<code>ionic -v</code>出现版本号即为安装成功。</p>
+<h4 id="3-创建第一个应用"><a href="#3-创建第一个应用" class="headerlink" title="3. 创建第一个应用"></a>3. 创建第一个应用</h4><p><code>ionic start myApp tabs</code>即为创建一个默认带tab栏的App。</p>
+<p><img src="/2020/02/12/12ionic框架的安装/2.png" alt="image-20200212180304089"></p>
+<p>这时候会让你选是基于Angular还是React，可以看到ionic框架支持Angular和React，其实Ionic4还支持VUE框架开发，但是我接下来计划用Angular进行开发，所以这里不深入研究了。选择Angular按下Enter，等待安装完成。</p>
+<p>安装完成后<code>cd myApp</code>进入应用根目录，<code>ionic server</code>即可运行项目。</p>
+<h4 id="4-其他问题"><a href="#4-其他问题" class="headerlink" title="4. 其他问题"></a>4. 其他问题</h4><p>由于node.js的服务器在国外，所以安装过程中速度会特别慢，这个时候我们可以切换到国内的镜像源：</p>
+<p><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>
+<p>再执行<code>cnpm install -g cordova ionic</code>安装速度会快很多。</p>
+<h4 id="5-视频教程链接"><a href="#5-视频教程链接" class="headerlink" title="5. 视频教程链接"></a>5. 视频教程链接</h4><p>IT营的大地老师是目前我觉得讲的最好的老师，过程详细全面，相关教程可以去IT营的官网查看。</p>
+<p>IT营：<a href="https://www.itying.com/" target="_blank" rel="noopener">https://www.itying.com/</a></p>
+<p>Ionic4.x入门实战教程：<a href="https://www.itying.com/goods-1067.html" target="_blank" rel="noopener">https://www.itying.com/goods-1067.html</a></p>
+<p>Angular8视频教程：<a href="https://www.itying.com/goods-1047.html" target="_blank" rel="noopener">https://www.itying.com/goods-1047.html</a></p>
+<p>TypeScript视频教程：<a href="https://www.itying.com/goods-905.html" target="_blank" rel="noopener">https://www.itying.com/goods-905.html</a></p>
+]]></content>
+      <categories>
+        <category>毕业设计</category>
+        <category>移动端应用搭建</category>
+      </categories>
+      <tags>
+        <tag>毕业设计</tag>
+        <tag>Ionic</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>11系统整合</title>
     <url>/2020/02/11/11%E7%B3%BB%E7%BB%9F%E6%95%B4%E5%90%88/</url>
     <content><![CDATA[<blockquote>
