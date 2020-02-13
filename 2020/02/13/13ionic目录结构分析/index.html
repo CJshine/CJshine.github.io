@@ -103,18 +103,21 @@
 
 
 
-  <meta name="description" content="摘要：今天主要把前两天做的内容进行整合，整合成一个完整的系统。">
-<meta name="keywords" content="毕业设计">
+  <meta name="description" content="摘要：ionic目录比较复杂，但是实际操作起来比较简单，所有页面都是模块化的。">
+<meta name="keywords" content="毕业设计,ionic">
 <meta property="og:type" content="article">
-<meta property="og:title" content="11系统整合">
-<meta property="og:url" content="http://yoursite.com/2020/02/11/11系统整合/index.html">
+<meta property="og:title" content="13ionic目录结构分析">
+<meta property="og:url" content="http://yoursite.com/2020/02/13/13ionic目录结构分析/index.html">
 <meta property="og:site_name" content="陈剑的博客">
-<meta property="og:description" content="摘要：今天主要把前两天做的内容进行整合，整合成一个完整的系统。">
+<meta property="og:description" content="摘要：ionic目录比较复杂，但是实际操作起来比较简单，所有页面都是模块化的。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-11T11:09:50.385Z">
+<meta property="og:image" content="http://yoursite.com/2020/02/13/13ionic目录结构分析/1.png">
+<meta property="og:image" content="http://yoursite.com/2020/02/13/13ionic目录结构分析/2.png">
+<meta property="og:updated_time" content="2020-02-13T11:19:38.303Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="11系统整合">
-<meta name="twitter:description" content="摘要：今天主要把前两天做的内容进行整合，整合成一个完整的系统。">
+<meta name="twitter:title" content="13ionic目录结构分析">
+<meta name="twitter:description" content="摘要：ionic目录比较复杂，但是实际操作起来比较简单，所有页面都是模块化的。">
+<meta name="twitter:image" content="http://yoursite.com/2020/02/13/13ionic目录结构分析/1.png">
 
 
 
@@ -124,7 +127,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2020/02/11/11系统整合/">
+  <link rel="canonical" href="http://yoursite.com/2020/02/13/13ionic目录结构分析/">
 
 
 
@@ -134,7 +137,7 @@
   };
 </script>
 
-  <title>11系统整合 | 陈剑的博客</title>
+  <title>13ionic目录结构分析 | 陈剑的博客</title>
   
 
 
@@ -379,7 +382,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/11/11系统整合/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/13/13ionic目录结构分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="陈剑">
@@ -396,7 +399,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">11系统整合
+          <h1 class="post-title" itemprop="name headline">13ionic目录结构分析
 
               
             
@@ -422,7 +425,7 @@
                 
               
 
-              <time title="创建时间：2020-02-11 17:56:09 / 修改时间：19:09:50" itemprop="dateCreated datePublished" datetime="2020-02-11T17:56:09+08:00">2020-02-11</time>
+              <time title="创建时间：2020-02-13 18:21:20 / 修改时间：19:19:38" itemprop="dateCreated datePublished" datetime="2020-02-13T18:21:20+08:00">2020-02-13</time>
             
 
             
@@ -448,6 +451,13 @@
 
                 
                 
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/毕业设计/移动端应用搭建/" itemprop="url" rel="index"><span itemprop="name">移动端应用搭建</span></a></span>
+
+                
+                
               
             </span>
           
@@ -463,8 +473,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2020/02/11/11系统整合/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/11/11系统整合/" itemprop="commentCount"></span>
+                <a href="/2020/02/13/13ionic目录结构分析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/13/13ionic目录结构分析/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -493,29 +503,38 @@
 
       
         <blockquote>
-<p>摘要：今天主要把前两天做的内容进行整合，整合成一个完整的系统。</p>
+<p>摘要：ionic目录比较复杂，但是实际操作起来比较简单，所有页面都是模块化的。</p>
 </blockquote>
 <a id="more"></a>
-<p>整体来说没有什么太大的问题，只是整合过程中的一些语法问题和Python的库导入问题，第二个是为了提高后台的管理，引入了xadmin，也是今天在看视频的时候接触到的，之前一直使用admin来管理，xadmin相较于admin更加强大，管理功能也更完善。</p>
-<ol>
-<li><p>xadmin的安装</p>
-<ul>
-<li>pip  install  xadmin</li>
-</ul>
-</li>
-<li><p>注册xadmin</p>
-<ul>
-<li><p>在settings.py中注册xadmin</p>
-</li>
-<li><p>然后在urls.py中配置url指向xadmin</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import xadmin</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(r&apos;^xadmin/&apos;, xadmin.site.urls),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>将user app中的admin.py文件中注册的内容注释掉。</p>
-</li>
-</ol>
-<p>PC端系统的开发暂时就到这里，下个阶段主要是移动端的开发，之前接触过ionic框架，使用起来感觉很不错，虽然是基于HTML5技术的移动APP开发框架，但是开发出来的应用很接近原生开发，所以明天开始学习ionic框架。</p>
+<p><img src="/2020/02/13/13ionic目录结构分析/1.png" alt="image-20200213184457342"></p>
+<p>e2e：端对端测试文件(一般情况下不用管)</p>
+<p>node_modules ：项目所需要的依赖包 resources ：android/ios 资源（更换图标和启</p>
+<p>动动画）</p>
+<p>src：开发工作目录，页面、样式、脚本和图片都放在这个目录下 （很重要） </p>
+<p>angular.json angular 配置文件</p>
+<p>config.xml: 打包成app 的配置文件</p>
+<p>package.json: 配置项目的元数据和管理项目所需要的依赖</p>
+<p>ionic.config.json、ionic.starter.json：ionic 配置文件</p>
+<p>tsconfig.json: TypeScript 项目的根目录，指定用来编译这个项目的根文件和编译选项</p>
+<p>tslint.json：格式化和校验typescript</p>
+<p><strong>其他还会出现的文件：</strong></p>
+<p>在运行<code>ionic build --prod</code>命令之后还会出现一个www文件夹，这是页面的静态文件夹</p>
+<p>运行<code>cordova platform add android</code>打包命令后还会出现一个platforms文件夹，里面放油生成Android或iOS安装包所需要的资源</p>
+<p>plugins：插件文件夹，里面放置各种cordova安装的插件</p>
+<p><strong>src目录分析：</strong></p>
+<p><img src="/2020/02/13/13ionic目录结构分析/2.png" alt="image-20200213185626342"></p>
+<p><strong>app:</strong>项目所需要的模块，组件，服务等</p>
+<p><strong>assets:</strong>项目的静态文件，主要是图片等等</p>
+<p><strong>environment：</strong>环境相关文件，配置项目运行的环境</p>
+<p><strong>theme：</strong>主题文件，可以修改项目的默认主题，比如配色</p>
+<p><strong>global.scss：</strong>全局css样式文件</p>
+<p><strong>index.html：</strong>入口文件</p>
+<p><strong>main.ts：</strong>主入口文件</p>
+<p><strong>polyfills.ts：</strong>填充库，在项目加载之前完成</p>
+<p><strong>test：</strong>测试文件</p>
+<p><strong>zone-flags.ts：</strong>配置文件</p>
+<p>ionic中有很多配置相关的文件，并不需要每一个都去学习，我们只要知道一些常用的就可以尝试开发功能了。</p>
+<p>好了，ionic的安装和介绍就学到这里，其实这几天还学了一些如何开发，做了几个简单的静态页面，就不写了，明天开始尝试做功能。</p>
 
       
     </div>
@@ -551,6 +570,8 @@
           
             <a href="/tags/毕业设计/" rel="tag"><i class="fa fa-tag"></i> 毕业设计</a>
           
+            <a href="/tags/ionic/" rel="tag"><i class="fa fa-tag"></i> ionic</a>
+          
         </div>
       
 
@@ -562,8 +583,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/10/10基于TensorFlow利用卷积神经网络训练图像样本数据/" rel="next" title="10基于TensorFlow利用卷积神经网络训练图像样本数据">
-                <i class="fa fa-chevron-left"></i> 10基于TensorFlow利用卷积神经网络训练图像样本数据
+              <a href="/2020/02/12/12ionic框架的安装/" rel="next" title="12ionic框架的安装">
+                <i class="fa fa-chevron-left"></i> 12ionic框架的安装
               </a>
             
           </div>
@@ -571,10 +592,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/02/12/12ionic框架的安装/" rel="prev" title="12ionic框架的安装">
-                12ionic框架的安装 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

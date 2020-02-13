@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>13ionic目录结构分析</title>
+    <url>/2020/02/13/13ionic%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<blockquote>
+<p>摘要：ionic目录比较复杂，但是实际操作起来比较简单，所有页面都是模块化的。</p>
+</blockquote>
+<a id="more"></a>
+<p><img src="/2020/02/13/13ionic目录结构分析/1.png" alt="image-20200213184457342"></p>
+<p>e2e：端对端测试文件(一般情况下不用管)</p>
+<p>node_modules ：项目所需要的依赖包 resources ：android/ios 资源（更换图标和启</p>
+<p>动动画）</p>
+<p>src：开发工作目录，页面、样式、脚本和图片都放在这个目录下 （很重要） </p>
+<p>angular.json angular 配置文件</p>
+<p>config.xml: 打包成app 的配置文件</p>
+<p>package.json: 配置项目的元数据和管理项目所需要的依赖</p>
+<p>ionic.config.json、ionic.starter.json：ionic 配置文件</p>
+<p>tsconfig.json: TypeScript 项目的根目录，指定用来编译这个项目的根文件和编译选项</p>
+<p>tslint.json：格式化和校验typescript</p>
+<p><strong>其他还会出现的文件：</strong></p>
+<p>在运行<code>ionic build --prod</code>命令之后还会出现一个www文件夹，这是页面的静态文件夹</p>
+<p>运行<code>cordova platform add android</code>打包命令后还会出现一个platforms文件夹，里面放油生成Android或iOS安装包所需要的资源</p>
+<p>plugins：插件文件夹，里面放置各种cordova安装的插件</p>
+<p><strong>src目录分析：</strong></p>
+<p><img src="/2020/02/13/13ionic目录结构分析/2.png" alt="image-20200213185626342"></p>
+<p><strong>app:</strong>项目所需要的模块，组件，服务等</p>
+<p><strong>assets:</strong>项目的静态文件，主要是图片等等</p>
+<p><strong>environment：</strong>环境相关文件，配置项目运行的环境</p>
+<p><strong>theme：</strong>主题文件，可以修改项目的默认主题，比如配色</p>
+<p><strong>global.scss：</strong>全局css样式文件</p>
+<p><strong>index.html：</strong>入口文件</p>
+<p><strong>main.ts：</strong>主入口文件</p>
+<p><strong>polyfills.ts：</strong>填充库，在项目加载之前完成</p>
+<p><strong>test：</strong>测试文件</p>
+<p><strong>zone-flags.ts：</strong>配置文件</p>
+<p>ionic中有很多配置相关的文件，并不需要每一个都去学习，我们只要知道一些常用的就可以尝试开发功能了。</p>
+<p>好了，ionic的安装和介绍就学到这里，其实这几天还学了一些如何开发，做了几个简单的静态页面，就不写了，明天开始尝试做功能。</p>
+]]></content>
+      <categories>
+        <category>毕业设计</category>
+        <category>移动端应用搭建</category>
+      </categories>
+      <tags>
+        <tag>毕业设计</tag>
+        <tag>ionic</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>12ionic框架的安装</title>
     <url>/2020/02/12/12ionic%E6%A1%86%E6%9E%B6%E7%9A%84%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<blockquote>
