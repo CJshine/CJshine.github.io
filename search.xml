@@ -1,6 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>14ionic页面操作</title>
+    <url>/2020/02/14/14ionic%E9%A1%B5%E9%9D%A2%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<blockquote>
+<p>摘要：ionic创建页面以及页面跳转以及自定义公共模块。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="1-ionic创建页面"><a href="#1-ionic创建页面" class="headerlink" title="1.ionic创建页面"></a>1.ionic创建页面</h4><p>命令：<code>ionic g page 页面名称</code></p>
+<p>我在项目目录打开cmd命令行，输入<code>ionic g page news</code>，可以看到在app目录下新增了news文件夹。</p>
+<p><img src="/2020/02/14/14ionic页面操作/1.png" alt="image-20200214182959503"></p>
+<p><img src="/2020/02/14/14ionic页面操作/2.png" alt="image-20200214183713725"></p>
+<p>news实际上是一个模块，打开news文件夹里面有6个子文件，这就是news模块。同时，ionic会自动在app-routing.module.ts文件中自动更新news的路由信息。</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path: <span class="string">'news'</span>,</span><br><span class="line">  loadChildren: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./news/news.module'</span>).then( <span class="function"><span class="params">m</span> =&gt;</span> m.NewsPageModule)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-ionic页面跳转"><a href="#2-ionic页面跳转" class="headerlink" title="2.ionic页面跳转"></a>2.ionic页面跳转</h4><p>要实现由tab1页面跳转到news页面</p>
+<ol>
+<li>首先我们在tab1的html页面设置一个按钮，在\&lt;ion-content>中写入：</li>
+</ol>
+<p>\&lt;ion-button color=”primary” [routerLink]=”[ ‘/news’]”> 跳转新闻\</p>
+<p>其中[routerLink]=[ ‘/news’]一句就是跳转到相应的页面语句</p>
+<ol start="2">
+<li>在news.page.ts文件中我们写一个循环：</li>
+</ol>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> list:<span class="built_in">any</span>=[];</span><br><span class="line"></span><br><span class="line"> <span class="keyword">constructor</span>(<span class="params"></span>) &#123; &#125;</span><br><span class="line"></span><br><span class="line"> ngOnInit() &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">   <span class="keyword">this</span>.list.push(<span class="string">'这是第'</span>+ i +<span class="string">'条数据'</span>)</span><br><span class="line">   </span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>然后在news.page.html中实现循环输出：</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ion-list</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ion-item</span> *<span class="attr">ngFor</span>=<span class="string">"let item of list"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ion-label</span>&gt;</span>&#123;&#123;item&#125;&#125;<span class="tag">&lt;/<span class="name">ion-label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ion-item</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ion-list</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2020/02/14/14ionic页面操作/2.gif" alt></p>
+<p>ionic4.x默认没有加返回按钮，我们可以在news.page.html页面的\&lt;ion-header>中加上</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ion-buttons</span> <span class="attr">slot</span>=<span class="string">"start"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">ion-back-button</span>&gt;</span><span class="tag">&lt;/<span class="name">ion-back-button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ion-buttons</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样就可以实现返回功能。</p>
+<p><img src="/2020/02/14/14ionic页面操作/3.gif" alt></p>
+<h4 id="3-自定义公共模块"><a href="#3-自定义公共模块" class="headerlink" title="3.自定义公共模块"></a>3.自定义公共模块</h4><p>ionic4.x中多个模块没法共用一个组件，这时候就需要把组件封装成模块，让模块引入模块。</p>
+<p>创建模块及组件命令：</p>
+<p><code>ionic g module 模块名称</code></p>
+<p><code>ionic g component 组件名称</code></p>
+<ol>
+<li>我们创建一个slide组件，我们输入：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ionic g module module/slide</span><br><span class="line">ionic g component module/slide</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/02/14/14ionic页面操作/3.png" alt="image-20200214193247584"></p>
+<p>在app文件夹下面可以看到module/slide文件夹，slide.component.html文件中有默认语句：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">  slide works!</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>想要在其他页面中引入这个组件，就需要把这个组件暴露出来</p>
+<ol start="2">
+<li><p>在slide.module.ts文件的declarstions中加入SlideCompnent并使用<code>exports:[SlideComponent]</code>把slide组件暴露出来</p>
+<p><img src="/2020/02/14/14ionic页面操作/4.png" alt="image-20200214195744654"></p>
+</li>
+<li><p>在tab1的tab1.module.ts文件中<code>import { SlideModule } from &#39;../module/slide/slide.module&#39;</code>引入组件并在@NgModule中声明<code>SlideModule</code></p>
+</li>
+<li><p>接下来就可以在tab1.page.html文件中使用\&lt;app-slide>\&lt;/app-slide>引入该组件</p>
+<p><img src="/2020/02/14/14ionic页面操作/5.png" alt="image-20200214200038514"></p>
+<p>在tab1页面中已经引入了slide.module.html页面的内容，其他页面引入Slide组件也是同样的方式。</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>毕业设计</category>
+        <category>移动端应用搭建</category>
+      </categories>
+      <tags>
+        <tag>毕业设计</tag>
+        <tag>Ionic</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>13ionic目录结构分析</title>
     <url>/2020/02/13/13ionic%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<blockquote>
