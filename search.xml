@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>15ionic的组件</title>
+    <url>/2020/02/15/15ionic%E7%9A%84%E7%BB%84%E4%BB%B6/</url>
+    <content><![CDATA[<blockquote>
+<p>摘要：今天学了一些ionic的相关组件，官网提供了相关的文档。我主要在需要的时候上官网进行查阅。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="ionic只是一个容器"><a href="#ionic只是一个容器" class="headerlink" title="ionic只是一个容器"></a>ionic只是一个容器</h4><p>在使用ionic的过程中发现，Ionic只是一个容易，它里面放着一些我们常用的东西供我们使用，比如Angular，React，TypeScript等等，我们用的时候只需要用相关的东西去描述我们想要的内容，描述完成Ionic会自动使用相关的技术帮我们搭建好这些东西，至于搭建的过程我们不需要去管，只要交给Ionic就可以了，我们可以更加专注于前端。</p>
+<h4 id="typescript的学习"><a href="#typescript的学习" class="headerlink" title="typescript的学习"></a>typescript的学习</h4><p>做的过程中发现ionic更多地用到TypeScript语言，TypeScript相比于JavaScript虽然说是它的超集，但是typescript实际上是一门面向对象的语言，它包含了 JavaScript 的所有元素，可以载入 JavaScript 代码运行，并扩展了 JavaScript 的语法。</p>
+<p>正是因为TypeScript增加了静态类型，类，模块，接口和类型注解，所以TypeScript可以用于大型应用的开发，学习起来也更容易。所以我还想继续深入学习一下TypeScript，算是立一个flag吧，接下来几天边做移动端的开发边学习TypeScript。</p>
+<p>加油加油加油！</p>
+]]></content>
+      <categories>
+        <category>毕业设计</category>
+        <category>移动端应用搭建</category>
+      </categories>
+      <tags>
+        <tag>毕业设计</tag>
+        <tag>Ionic</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>14ionic页面操作</title>
     <url>/2020/02/14/14ionic%E9%A1%B5%E9%9D%A2%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<blockquote>
