@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-17T09:40:44.923Z</updated>
+  <updated>2020-02-17T14:03:41.135Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一种解决github项目下载失败的方法</title>
+    <link href="http://yoursite.com/2020/02/17/%E4%B8%80%E7%A7%8D%E8%A7%A3%E5%86%B3github%E9%A1%B9%E7%9B%AE%E4%B8%8B%E8%BD%BD%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>http://yoursite.com/2020/02/17/%E4%B8%80%E7%A7%8D%E8%A7%A3%E5%86%B3github%E9%A1%B9%E7%9B%AE%E4%B8%8B%E8%BD%BD%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%96%B9%E6%B3%95/</id>
+    <published>2020-02-17T13:32:49.000Z</published>
+    <updated>2020-02-17T14:03:41.135Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>摘要：借助码云实现第三方快速下载</p></blockquote><a id="more"></a><p>今天下载一个 <del>比较大型</del> 30m大小的项目的时候由于网络问题接连失败，然后在网上找了一种可行的方法，记录下来。</p><h4 id="1-首先需要一个码云账户，如果你没有，这个是官网地址https-gitee-com"><a href="#1-首先需要一个码云账户，如果你没有，这个是官网地址https-gitee-com" class="headerlink" title="1. 首先需要一个码云账户，如果你没有，这个是官网地址https://gitee.com/"></a>1. 首先需要一个码云账户，如果你没有，这个是官网地址<a href="https://gitee.com/" target="_blank" rel="noopener">https://gitee.com/</a></h4><p><img src="/2020/02/17/一种解决github项目下载失败的方法/1.png" alt></p><h4 id="2-注册一个账号"><a href="#2-注册一个账号" class="headerlink" title="2. 注册一个账号"></a>2. 注册一个账号</h4><p><img src="/2020/02/17/一种解决github项目下载失败的方法/2.png" alt="image-20200217214348392"></p><h4 id="3-新建一个仓库"><a href="#3-新建一个仓库" class="headerlink" title="3.新建一个仓库"></a>3.新建一个仓库</h4><p><img src="/2020/02/17/一种解决github项目下载失败的方法/3.png" alt="image-20200217214722401"></p><h4 id="4-选择导入已有仓库"><a href="#4-选择导入已有仓库" class="headerlink" title="4. 选择导入已有仓库"></a>4. 选择导入已有仓库</h4><p><img src="/2020/02/17/一种解决github项目下载失败的方法/4.png" alt="image-20200217214928948"></p><h4 id="5-复制github项目地址"><a href="#5-复制github项目地址" class="headerlink" title="5.复制github项目地址"></a>5.复制github项目地址</h4><p><img src="/2020/02/17/一种解决github项目下载失败的方法/5.png" alt="image-20200217215524197"></p><h4 id="6-粘贴刚刚刚创建的仓库，然后点击创建"><a href="#6-粘贴刚刚刚创建的仓库，然后点击创建" class="headerlink" title="6.粘贴刚刚刚创建的仓库，然后点击创建"></a>6.粘贴刚刚刚创建的仓库，然后点击创建</h4><p><img src="/2020/02/17/一种解决github项目下载失败的方法/6.png" alt="image-20200217215817678"></p><h4 id="7-等待创建完成之后的，将仓库下载到本地"><a href="#7-等待创建完成之后的，将仓库下载到本地" class="headerlink" title="7.等待创建完成之后的，将仓库下载到本地"></a>7.等待创建完成之后的，将仓库下载到本地</h4><p><img src="/2020/02/17/一种解决github项目下载失败的方法/7.png" alt="image-20200217220141506"></p><p>输入验证码之后就可以用正常网速下载项目到本地了。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;摘要：借助码云实现第三方快速下载&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="桌边闲话" scheme="http://yoursite.com/categories/%E6%A1%8C%E8%BE%B9%E9%97%B2%E8%AF%9D/"/>
+    
+    
+      <category term="github" scheme="http://yoursite.com/tags/github/"/>
+    
+  </entry>
   
   <entry>
     <title>17ionic4中数据交互</title>
