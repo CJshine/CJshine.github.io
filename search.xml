@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>17ionic4中数据交互</title>
+    <url>/2020/02/17/17ionic4%E4%B8%AD%E6%95%B0%E6%8D%AE%E4%BA%A4%E4%BA%92/</url>
+    <content><![CDATA[<blockquote>
+<p>ionic中数据交互请求服务器端数据和angular中几乎一样，get和post都使用HttpClientModule模块。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="ionic4-get请求数据"><a href="#ionic4-get请求数据" class="headerlink" title="ionic4 get请求数据"></a>ionic4 get请求数据</h4><p><strong>1、在app.module.ts中引入HttpClientModule 并注入</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;HttpClientModule&#125; <span class="keyword">from</span> <span class="string">'@angular/common/http'</span>;</span><br><span class="line"></span><br><span class="line">imports: [</span><br><span class="line"> BrowserModule,</span><br><span class="line"> HttpClientModule </span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><strong>2、在用到的地方引入HttpClient并在构造函数声明</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;HttpClient&#125; <span class="keyword">from</span> <span class="string">"@angular/common/http"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">constructor</span>(public http:HttpClient) &#123; &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3、ionic4 get请求数据</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> api = <span class="string">"http://a.itying.com/api/productlist"</span>;</span><br><span class="line"><span class="keyword">this</span>.http.get(api).subscribe(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(response); </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="ionic4-post提交数据"><a href="#ionic4-post提交数据" class="headerlink" title="ionic4 post提交数据"></a>ionic4 post提交数据</h4><p><strong>1、在app.module.ts中引入HttpClientModule 并注入</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;HttpClientModule&#125; <span class="keyword">from</span> <span class="string">'@angular/common/http'</span>;</span><br><span class="line"></span><br><span class="line">imports: [</span><br><span class="line">  BrowserModule,</span><br><span class="line">  HttpClientModule </span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><strong>2、在用到的地方引入HttpClient、HttpHeaders并在构造函数声明HttpClient</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;HttpClient,HttpHeaders&#125; <span class="keyword">from</span> <span class="string">"@angular/common/http"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">constructor</span>(public http:HttpClient) &#123; &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3、post提交数据</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> httpOptions = &#123;</span><br><span class="line">   headers: <span class="keyword">new</span> HttpHeaders(&#123; <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span> &#125;)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> api = <span class="string">"http://127.0.0.1:3000/doLogin"</span>;</span><br><span class="line"><span class="keyword">this</span>.http.post(api,&#123;<span class="attr">username</span>:<span class="string">'张三'</span>,<span class="attr">age</span>:<span class="string">'20'</span>&#125;,httpOptions).subscribe(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(response);      </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="ionic4-Jsonp请求数据"><a href="#ionic4-Jsonp请求数据" class="headerlink" title="ionic4 Jsonp请求数据"></a>ionic4 Jsonp请求数据</h4><p><strong>1、在app.module.ts中引入HttpClientModule、HttpClientJsonpModule 并注入</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;HttpClientModule,HttpClientJsonpModule&#125; <span class="keyword">from</span> <span class="string">'@angular/common/http'</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">imports: [</span><br><span class="line">   BrowserModule,</span><br><span class="line">   HttpClientModule,</span><br><span class="line">   HttpClientJsonpModule</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><strong>2、在用到的地方引入HttpClient并在构造函数声明</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;HttpClient&#125; <span class="keyword">from</span> <span class="string">"@angular/common/http"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">constructor</span>(public http:HttpClient) &#123; &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>3、jsonp请求数据</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> api = <span class="string">"http://a.itying.com/api/productlist"</span>;</span><br><span class="line"><span class="keyword">this</span>.http.jsonp(api,<span class="string">'callback'</span>).subscribe(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(response); </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>毕业设计</category>
+        <category>移动端应用搭建</category>
+      </categories>
+      <tags>
+        <tag>毕业设计</tag>
+        <tag>Ionic</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>16TypeScript和JavaScript的比较</title>
     <url>/2020/02/16/16TypeScript%E5%92%8CJavaScript%E7%9A%84%E6%AF%94%E8%BE%83/</url>
     <content><![CDATA[<blockquote>
