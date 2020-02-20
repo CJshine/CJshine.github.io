@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-19T12:42:10.906Z</updated>
+  <updated>2020-02-20T11:43:25.502Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>20使用celery异步发送邮件过程中遇到的问题</title>
+    <link href="http://yoursite.com/2020/02/20/20%E4%BD%BF%E7%94%A8celery%E5%BC%82%E6%AD%A5%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2020/02/20/20%E4%BD%BF%E7%94%A8celery%E5%BC%82%E6%AD%A5%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</id>
+    <published>2020-02-20T11:38:27.000Z</published>
+    <updated>2020-02-20T11:43:25.502Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>摘要：今天使用celery进行异步发送激活邮件，主要是为了防止发送邮件过程中系统反应过慢，影响用户体验。</p></blockquote><a id="more"></a><ol><li><p>启动worker过程中目标计算机积极拒绝，无法连接。</p><ul><li>下载并安装Redis-x64-3.0.503.msi，地址：<a href="https://github.com/MicrosoftArchive/redis/releases" target="_blank" rel="noopener">https://github.com/MicrosoftArchive/redis/releases</a></li><li>双击redis-cli.exe，启动服务即可。</li></ul></li><li><p>windows下安装Redis第一次启动报错：Creating Server TCP listening socket 127.0.0.1:6379: bind: No error</p><ul><li><p>双击redis-cli.exe</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt;shutdown</span><br><span class="line">not connected&gt;exit</span><br></pre></td></tr></table></figure></li></ul><p>​    然后重新运行redis-server.exe redis.windows.conf，启动成功！</p><p>​    启动成功后不要关闭启动页面</p></li><li><p>发送邮件是worker报错：ValueError: not enough values to unpack (expected 3, got 0)</p><ul><li><p>原网页:<a href="https://github.com/celery/celery/issues/4081" target="_blank" rel="noopener">Unable to run tasks under Windows</a></p><p>看别人描述大概就是说win10上运行celery4.x就会出现这个问题，解决办法如下,原理未知：</p><p>先安装一个eventlet</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install eventlet</span><br></pre></td></tr></table></figure><p>然后启动worker的时候加一个参数<code>-P eventlet</code>，如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">celery -A &lt;mymodule&gt; worker -l info -P eventlet</span><br></pre></td></tr></table></figure><p>然后就可以正常的调用了。</p></li></ul></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;摘要：今天使用celery进行异步发送激活邮件，主要是为了防止发送邮件过程中系统反应过慢，影响用户体验。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="毕业设计" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="问题总结" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="Django2.0" scheme="http://yoursite.com/tags/Django2-0/"/>
+    
+  </entry>
   
   <entry>
     <title>19使用邮箱进行账号激活</title>
@@ -531,31 +560,6 @@
     
       &lt;blockquote&gt;
 &lt;p&gt;摘要：今天根着网上的一个实战项目类比发现我之前做的一些东西还不够完善，底层数据库的设计也很简单，只能是把简单的业务功能实现了，远远没有达到实际中的项目需要，尤其是管理员界面，离实际使用还有很大距离。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="毕业设计" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-      <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>01毕设学习进度记录</title>
-    <link href="http://yoursite.com/2020/02/01/01%E6%AF%95%E8%AE%BE%E5%AD%A6%E4%B9%A0%E8%BF%9B%E5%BA%A6%E8%AE%B0%E5%BD%95/"/>
-    <id>http://yoursite.com/2020/02/01/01%E6%AF%95%E8%AE%BE%E5%AD%A6%E4%B9%A0%E8%BF%9B%E5%BA%A6%E8%AE%B0%E5%BD%95/</id>
-    <published>2020-02-01T10:39:27.000Z</published>
-    <updated>2020-02-03T06:04:30.665Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>摘要：寒假期间毕业设计进度记录。主要用于督促自己毕业设计的进度，也是对自己这个过程的一个记录，方便以后回顾。</p></blockquote><a id="more"></a>  <p>寒假前几天学习了近一个星期Django框架，过年几天没有学习。</p><p>今天是年后第一天开始做毕设，Django框架学习起来比较简单，虽然Django框架很大，学习周期比较长，但是借助于Django模板的方便性，学习起来还是很快，尤其是连接数据库的简单让我很惊讶，从Java到Python再到Django，连接数据库越来越趋于简单，可能以后的编程会越来越趋于 “拼接” 这种方向。</p><p>接下来几天的计划都是对Django框架的学习，以及对毕设项目的完善，下面简单描述一下毕设项目。</p><hr><h3 id="毕设项目介绍"><a href="#毕设项目介绍" class="headerlink" title="毕设项目介绍"></a>毕设项目介绍</h3><p>项目名称：<strong>文化衫定制平台的设计与实现</strong></p><ol><li><p>设计要求</p><p>文化衫定制平台的设计与实现要求学生独立设计文化衫交流社区，基于在线交互模式实现文化衫个性化定制、发布、销售、交流和推荐等功能。</p><p>(1)系统要求开发工具采用 Pycharm + Android SDK + MySQL + Tomcat等。</p><p>(2)要求系统界面设计美观，交互友好，操作方便。</p></li><li><p>设计内容</p><p>文化衫定制平台的角色包括平台管理员、制造销售商、设计师和会员用户等，系统分别为管理员、制造销售商、设计师和会员提供如下功能：</p><p>(1)管理员、销售制造商、设计师和会员的信息管理功能。</p><p>(2)基于交互模式的文化衫图案在线设计功能，并提供侵权举报功能。</p><p>(3)提供文化衫定制、销售功能，并基于文化衫销售数据提供数据分析与定价推荐功能。</p><p>(4)提供制造销售商、设计师和会员用户的积分预等级管理功能。</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;摘要：寒假期间毕业设计进度记录。主要用于督促自己毕业设计的进度，也是对自己这个过程的一个记录，方便以后回顾。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>

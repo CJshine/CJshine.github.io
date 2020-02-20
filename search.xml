@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>20使用celery异步发送邮件过程中遇到的问题</title>
+    <url>/2020/02/20/20%E4%BD%BF%E7%94%A8celery%E5%BC%82%E6%AD%A5%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<blockquote>
+<p>摘要：今天使用celery进行异步发送激活邮件，主要是为了防止发送邮件过程中系统反应过慢，影响用户体验。</p>
+</blockquote>
+<a id="more"></a>
+<ol>
+<li><p>启动worker过程中目标计算机积极拒绝，无法连接。</p>
+<ul>
+<li>下载并安装Redis-x64-3.0.503.msi，地址：<a href="https://github.com/MicrosoftArchive/redis/releases" target="_blank" rel="noopener">https://github.com/MicrosoftArchive/redis/releases</a></li>
+<li>双击redis-cli.exe，启动服务即可。</li>
+</ul>
+</li>
+<li><p>windows下安装Redis第一次启动报错：Creating Server TCP listening socket 127.0.0.1:6379: bind: No error</p>
+<ul>
+<li><p>双击redis-cli.exe</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">127.0.0.1:6379&gt;shutdown</span><br><span class="line">not connected&gt;exit</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>​    然后重新运行redis-server.exe redis.windows.conf，启动成功！</p>
+<p>​    启动成功后不要关闭启动页面</p>
+</li>
+<li><p>发送邮件是worker报错：ValueError: not enough values to unpack (expected 3, got 0)</p>
+<ul>
+<li><p>原网页:<a href="https://github.com/celery/celery/issues/4081" target="_blank" rel="noopener">Unable to run tasks under Windows</a></p>
+<p>看别人描述大概就是说win10上运行celery4.x就会出现这个问题，解决办法如下,原理未知：</p>
+<p>先安装一个eventlet</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install eventlet</span><br></pre></td></tr></table></figure>
+<p>然后启动worker的时候加一个参数<code>-P eventlet</code>，如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">celery -A &lt;mymodule&gt; worker -l info -P eventlet</span><br></pre></td></tr></table></figure>
+<p>然后就可以正常的调用了。</p>
+</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>毕业设计</category>
+        <category>问题总结</category>
+      </categories>
+      <tags>
+        <tag>毕业设计</tag>
+        <tag>Django2.0</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>19使用邮箱进行账号激活</title>
     <url>/2020/02/19/19%E4%BD%BF%E7%94%A8%E9%82%AE%E7%AE%B1%E8%BF%9B%E8%A1%8C%E8%B4%A6%E5%8F%B7%E6%BF%80%E6%B4%BB/</url>
     <content><![CDATA[<blockquote>
