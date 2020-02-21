@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-20T11:43:25.502Z</updated>
+  <updated>2020-02-21T13:29:04.618Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>21Django2.0部分问题总结</title>
+    <link href="http://yoursite.com/2020/02/21/21Django2-0%E9%83%A8%E5%88%86%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2020/02/21/21Django2-0%E9%83%A8%E5%88%86%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/</id>
+    <published>2020-02-21T13:27:34.000Z</published>
+    <updated>2020-02-21T13:29:04.618Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h4 id="python引入模块报错ValueError-attempted-relative-import-beyond-top-level-package"><a href="#python引入模块报错ValueError-attempted-relative-import-beyond-top-level-package" class="headerlink" title="python引入模块报错ValueError: attempted relative import beyond top-level package"></a>python引入模块报错ValueError: attempted relative import beyond top-level package</h4><p>​        原因：导包时使用了相对路径，比如 <code>from . import XXX</code>或者<code>from .. import XXX</code></p><p>​        在涉及到相对导入时，package所对应的文件夹必须正确的被python解释器视作package，而不是普通文件夹。否则由于不被视作package，无法利用package之间的嵌套关系实现python中包的相对导入。</p><p>​        文件夹被python解释器视作package需要满足两个条件：</p><p>1、文件夹中必须有<strong>init</strong>.py文件，该文件可以为空，但必须存在该文件。</p><p>2、不能作为顶层模块来执行该文件夹中的py文件（即不能作为主函数的入口）。</p><p>​        补充：在”from YY import XX”这样的代码中，无论是XX还是YY，只要被python解释器视作package，就会首先调用该package的<strong>init</strong>.py文件。如果都是package，则调用顺序是YY，XX。</p><p>​        解决办法：使用绝对路径即可，或者在文件中添加下面两行代码</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys,os</span><br><span class="line">sys.path.append(os.path.dirname(__file__) + os.sep + <span class="string">'../'</span>)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h4 id=&quot;python引入模块报错ValueError-attempted-relative-import-beyond-top-level-package&quot;&gt;&lt;a href=&quot;#python引入模块报错ValueError-attemp
+      
+    
+    </summary>
+    
+    
+      <category term="毕业设计" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="问题总结" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>20使用celery异步发送邮件过程中遇到的问题</title>
@@ -535,31 +564,6 @@
     
       &lt;blockquote&gt;
 &lt;p&gt;摘要：Django框架是一个比较大型的框架，相较于flask等等。也正是因为Django的体量比较大，做很多功能有现成的方案，实现起来比较简单和方便，所以我在毕设当中采用了Django框架。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="毕业设计" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-      <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>02重新设计数据库</title>
-    <link href="http://yoursite.com/2020/02/02/02%E9%87%8D%E6%96%B0%E8%AE%BE%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    <id>http://yoursite.com/2020/02/02/02%E9%87%8D%E6%96%B0%E8%AE%BE%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%BA%93/</id>
-    <published>2020-02-02T10:35:44.000Z</published>
-    <updated>2020-02-03T03:43:42.323Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>摘要：今天根着网上的一个实战项目类比发现我之前做的一些东西还不够完善，底层数据库的设计也很简单，只能是把简单的业务功能实现了，远远没有达到实际中的项目需要，尤其是管理员界面，离实际使用还有很大距离。</p></blockquote><a id="more"></a><p>管理界面在学习阶段是我们自己经常用的，我们作为研发人员知道自己想要什么，怎么使用。但是实际交付工作，管理端往往是交付给完全没有软件设计经验的管理人员使用，他们也需要像普通用户一样简单易懂的管理界面。因此要把后台也是值得更加精细化，便于管理员使用。</p><p><img src="/2020/02/02/02重新设计数据库/1.png" alt></p><p>这是我的网站首页，现在这个网站的轮播图只能通过修改代码和后台图片实现。通过网上学习项目，我第一次接触到后台管理可通过上传图片，指定某张具体的图片进行管理首页，当然也包括后面的销量图，活动图等等，这就需要管理端的数据库更加精细化，设计更多的表对需要指定的内容进行一一对应。所以我今天对照视频把自己的数据库进行了重新设计。加入了之前没有的对前端页面显示的管理，又增加了对产品的一些细节化管理，比如详情图片管理，简介管理等等。</p><p>之前对于管理端的理解比较简单，今天对管理端又有了重新的认识，管理端也是普通用户的一端，所有用户接触到的一端都应该设计的简单，方便，易用，易于理解。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;摘要：今天根着网上的一个实战项目类比发现我之前做的一些东西还不够完善，底层数据库的设计也很简单，只能是把简单的业务功能实现了，远远没有达到实际中的项目需要，尤其是管理员界面，离实际使用还有很大距离。&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
