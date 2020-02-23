@@ -1,6 +1,200 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>搭建FastDFS及Nginx过程中遇到的问题</title>
+    <url>/2020/02/23/%E6%90%AD%E5%BB%BAFastDFS%E5%8F%8ANginx%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<blockquote>
+<p>摘要：安装个Nginx，配置文件那里整整用了一天时间，还是无法映射到8888端口，只能使用80端口实现了，无奈。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="本地上传文件到FastDFS命令上传报错：ERROR-file-connection-pool-c-line-130-connect-to-x-x-x-x-22122-fail"><a href="#本地上传文件到FastDFS命令上传报错：ERROR-file-connection-pool-c-line-130-connect-to-x-x-x-x-22122-fail" class="headerlink" title="本地上传文件到FastDFS命令上传报错：ERROR - file: connection_pool.c, line: 130, connect to x.x.x.x:22122 fail"></a>本地上传文件到FastDFS命令上传报错：ERROR - file: connection_pool.c, line: 130, connect to x.x.x.x:22122 fail</h4><p><strong>问题分析</strong>：错误信息提示错误的原因为连接超时，连接超时有两种可能的原因，一种是云服务器拒绝我们的访问，另一种是我们服务器电脑开启了开机启动防火墙。<br><strong>注：不管你进行什么操作，只要是报了类似连接失败错误代号，大部分都是由于两种原因造成</strong></p>
+<p><strong>解决方法一</strong>：<br>故先检查云服务是否对我们的22122端口（FastDFS的默认端口）进行了拦截，有的话创建安全组对该端口进行放行应用到实例上再次上传就能解决上传成功(这里我设置为所有端口都开放)。</p>
+<p><img src="/2020/02/23/搭建FastDFS及Nginx过程中遇到的问题/1.png" alt="image-20200223114229884"></p>
+<p><strong>解决方法二：</strong><br>由于出现该问题的原因是因为自己的防火墙没有开启，故开启防火墙即可解决问题，Linux上的指令如下：<br>1、关闭防火墙：</p>
+<p><code>sudo systemctl stop firewalld.service</code><br>2、关闭开机启动：</p>
+<p><code>sudo systemctl disable firewalld.service</code></p>
+<p>再次上传：</p>
+<p><img src="/2020/02/23/搭建FastDFS及Nginx过程中遇到的问题/2.png" alt="image-20200223114409066"></p>
+<p>成功</p>
+<h4 id="nginx-conf的配置"><a href="#nginx-conf的配置" class="headerlink" title="nginx.conf的配置"></a>nginx.conf的配置</h4><p>按照文档进行配置，但是无论如何都打不开8888的端口，只能改到默认的80端口，具体配置如下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  x.x.x.x;</span><br><span class="line"></span><br><span class="line">        location ~/group[0-9]/ &#123;</span><br><span class="line">            ngx_fastdfs_module;</span><br><span class="line">            root   html;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>毕业设计</category>
+        <category>问题总结</category>
+      </categories>
+      <tags>
+        <tag>毕业设计</tag>
+        <tag>Linux</tag>
+        <tag>FastDFS</tag>
+        <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>23搭建FastDFS+Nginx分布式文件系统</title>
+    <url>/2020/02/23/23%E6%90%AD%E5%BB%BAFastDFS-Nginx%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<blockquote>
+<p>摘要：安装一个分布式文件系统花了一天时间，不过总算是搞出来了。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>我用的是Linux版本是centos7<br>准备搭建所需要的gz包：<br>    nginx-1.8.1.tar.gz<br>    fastdfs-master.zip<br>    fastdfs-nginx-module-master.zip<br>    libfastcommon-master.zip</p>
+<h3 id="安装前准备"><a href="#安装前准备" class="headerlink" title="安装前准备"></a>安装前准备</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">yum install -y lrzsz</span><br></pre></td></tr></table></figure>
+<p>安装完成之后可以使用<code>rz</code>命令从本地向云服务器上传文件</p>
+<h3 id="安装FastDFS"><a href="#安装FastDFS" class="headerlink" title="安装FastDFS"></a>安装FastDFS</h3><h4 id="安装fastdfs依赖包"><a href="#安装fastdfs依赖包" class="headerlink" title="安装fastdfs依赖包"></a>安装fastdfs依赖包</h4><ol>
+<li><p>将libfastcommon解压到/usr/local/文件夹下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ unzip libfastcommon-master.zip -d /usr/<span class="built_in">local</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入到libfastcommon-master目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/libfastcommon-master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行./make.sh</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ./make.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行./make.sh install</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ./make.sh install</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="安装fastdfs"><a href="#安装fastdfs" class="headerlink" title="安装fastdfs"></a>安装fastdfs</h4><ol>
+<li><p>解压缩fastdfs-master.zip</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ unzip fastdfs-master.zip -d /usr/<span class="built_in">local</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入到fastdfs-master目录中</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/fasdfs-master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行./make.sh</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ./make.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行./make.sh install</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ./make.sh install</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="配置跟中服务器tracker"><a href="#配置跟中服务器tracker" class="headerlink" title="配置跟中服务器tracker"></a>配置跟中服务器tracker</h4><ol>
+<li><p>将tracker.conf文件移动到/etc/fdfs/中</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cp /etc/fdfs/tracker.conf.sample /etc/fdfs/tracker.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在/usr/local/python3/目录中创建目录/fastdfs/tracker</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mkdir -p /usr/<span class="built_in">local</span>/python3/fastdfs/tracker</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑/etc/fdfs/tracker.conf配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim /etc/fdfs/tracker.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改内容</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">base_path=/usr/<span class="built_in">local</span>/python3/fastdfs/tracker</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="配置储存服务器storage"><a href="#配置储存服务器storage" class="headerlink" title="配置储存服务器storage"></a>配置储存服务器storage</h4><ol>
+<li><p>将storage.conf文件移动到/etc/fdfs/中</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cp /etc/fdfs/storage.conf.sample /etc/fdfs/storage.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在/usr/local/python3/fastdfs/目录中创建目录storage</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ mkdir -p /usr/<span class="built_in">local</span>/python3/fastdfs/storage</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑/etc/fdfs/storage.conf配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim /etc/fdfs/storage.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改内容</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">base_path=/usr/<span class="built_in">local</span>/python3/fastdfs/storage</span><br><span class="line">store_path0=/usr/<span class="built_in">local</span>/python3/fastdfs/storage</span><br><span class="line"><span class="comment"># 此处x.x.x.x为自己的云服务器的ip地址</span></span><br><span class="line">tracker_server=x.x.x.x:22122</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动tracker和storage</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ service fdfs_trackerd start</span><br><span class="line">$ service fdfs_storaged start</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="测试是否安装成功"><a href="#测试是否安装成功" class="headerlink" title="测试是否安装成功"></a>测试是否安装成功</h4><ol>
+<li><p>将client.conf文件移动到/etc/fdfs/文件夹下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cp /etc/fdfs/client.conf.sample /etc/fdfs/client.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑/etc/fdfs/client.conf配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim /etc/fdfs/client.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改内容</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">base_path=/usr/<span class="built_in">local</span>/python3/fastdfs/tracker</span><br><span class="line"><span class="comment"># 此处x.x.x.x为自己的云服务器的ip地址</span></span><br><span class="line">tracker_server=x.x.x.x:22122</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>上传文件到/usr/local/文件夹下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span></span><br><span class="line">$ rz</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>上传文件测试</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ fdfs_upload_file /etc/fdfs/client.conf /usr/<span class="built_in">local</span>/1.jpg</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>正确返回内容</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">group1/M00/00/00/rBBVCV5SUomAZGXzAAJsTkkrCMI580.jpg</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="安装nginx及fastdfs-nginx-module"><a href="#安装nginx及fastdfs-nginx-module" class="headerlink" title="安装nginx及fastdfs-nginx-module"></a>安装nginx及fastdfs-nginx-module</h3><h4 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h4><ol>
+<li><p>将nginx-1.8.1.tar.gz解压至/usr/local</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ tar -zxvf nginx-1.8.1.tar.gz -C /usr/<span class="built_in">local</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入nginx-1.8.1目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/nginx-1.8.1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>参数配置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/nginx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动nginx</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/nginx/sbin</span><br><span class="line">$ nginx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果启动成功可以在浏览器访问自己的服务器</p>
+<p><img src="/2020/02/23/23搭建FastDFS-Nginx分布式文件系统/1.png" alt="image-20200223180515518"></p>
+</li>
+</ol>
+<h4 id="添加fastdfs-nginx-module"><a href="#添加fastdfs-nginx-module" class="headerlink" title="添加fastdfs-nginx-module"></a>添加fastdfs-nginx-module</h4><ol>
+<li><p>将fastdfs-nginx-module-master.zip解压到/usr/local/文件夹下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ unzip fastdfs-nginx-module-master.zip -d /usr/<span class="built_in">local</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在nginx中添加该模块 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/nginx-1.8.1</span><br><span class="line">$ ./configure --add-module=/usr/<span class="built_in">local</span>/fastdfs-nginx-module/src</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改fastdfs-nginx-module配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/fastdfs-nginx-module/src</span><br><span class="line">$ vim config</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改内容</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">CORE_INCS=<span class="string">"<span class="variable">$CORE_INCS</span> /usr/include/fastdfs /usr/include/fastcommon"</span></span><br><span class="line">CORE_LIBS=<span class="string">"<span class="variable">$CORE_LIBS</span> -L/usr/lib -lfastcommon -lfdfsclient"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将src目录下的mod_fastdfs.conf文件复制到/etc/fdfs/目录下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ cp /usr/<span class="built_in">local</span>/fastdfs-nginx-module-master/src/mod_fastdfs.conf /etc/fdfs</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改/etc/fdfs/mod_fastdfs.conf的内容</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim /etc/fdfs/mod_fastdfs.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改内容</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">connect_timeout=10</span><br><span class="line"><span class="comment"># 此处x.x.x.x为自己的云服务器的ip地址</span></span><br><span class="line">tracker_server=x.x.x.x:22122</span><br><span class="line">url_have_group_name=<span class="literal">true</span></span><br><span class="line">store_path0=/usr/<span class="built_in">local</span>/python3/fastdfs/storage</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将fastdfs-master/conf/目录下的两个文件复制到/etc/fdfs/中</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/fastdfs-master/conf</span><br><span class="line">$ cp http.conf /etc/fdfs/http.conf</span><br><span class="line">$ cp mime.types /etc/fdfs/mime.types</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入/usr/local/nginx/conf目录下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/nginx/conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改nginx.conf配置文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ vim nginx.conf</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改内容</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  x.x.x.x;</span><br><span class="line"></span><br><span class="line">        location ~/group[0-9]/ &#123;</span><br><span class="line">            ngx_fastdfs_module;</span><br><span class="line">            root   html;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重新启动nginx</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /usr/<span class="built_in">local</span>/nginx/sbin</span><br><span class="line">$ nginx -s reload</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将之前上传图片时的返回内容复制到浏览器地址栏可以查看到文件</p>
+<p><img src="/2020/02/23/23搭建FastDFS-Nginx分布式文件系统/2.png" alt="image-20200223182448549"></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>毕业设计</category>
+      </categories>
+      <tags>
+        <tag>毕业设计</tag>
+        <tag>Linux</tag>
+        <tag>FastDFS</tag>
+        <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>22Linux中部署项目环境</title>
     <url>/2020/02/22/22Linux%E4%B8%AD%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83/</url>
     <content><![CDATA[<blockquote>
