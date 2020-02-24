@@ -103,16 +103,18 @@
 
 
 
-  <meta name="description" content="陈剑的个人站点，主要涉及计算机方面心得体会和学习日志">
-<meta property="og:type" content="website">
-<meta property="og:title" content="陈剑的博客">
-<meta property="og:url" content="http://yoursite.com/archives/page/3/index.html">
+  <meta name="description" content="今天使用python在本地和服务器的FastDFS进行交互，遇到了几个问题，记录一下。">
+<meta name="keywords" content="毕业设计,FastDFS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="24Python与FDFS交互时遇到的问题">
+<meta property="og:url" content="http://yoursite.com/2020/02/24/24Python与FDFS交互时遇到的问题/index.html">
 <meta property="og:site_name" content="陈剑的博客">
-<meta property="og:description" content="陈剑的个人站点，主要涉及计算机方面心得体会和学习日志">
+<meta property="og:description" content="今天使用python在本地和服务器的FastDFS进行交互，遇到了几个问题，记录一下。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-24T12:13:30.528Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="陈剑的博客">
-<meta name="twitter:description" content="陈剑的个人站点，主要涉及计算机方面心得体会和学习日志">
+<meta name="twitter:title" content="24Python与FDFS交互时遇到的问题">
+<meta name="twitter:description" content="今天使用python在本地和服务器的FastDFS进行交互，遇到了几个问题，记录一下。">
 
 
 
@@ -122,7 +124,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/archives/page/3/">
+  <link rel="canonical" href="http://yoursite.com/2020/02/24/24Python与FDFS交互时遇到的问题/">
 
 
 
@@ -132,7 +134,7 @@
   };
 </script>
 
-  <title>归档 | 陈剑的博客</title>
+  <title>24Python与FDFS交互时遇到的问题 | 陈剑的博客</title>
   
 
 
@@ -180,7 +182,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -286,7 +288,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
 
     
     
@@ -357,323 +359,246 @@
           
             
 
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
-
           
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      
-      <span class="archive-page-counter">
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/24/24Python与FDFS交互时遇到的问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="陈剑">
+      <meta itemprop="description" content="陈剑的个人站点，主要涉及计算机方面心得体会和学习日志">
+      <meta itemprop="image" content="/../images/head.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="陈剑的博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">24Python与FDFS交互时遇到的问题
+
+              
+            
+          </h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-24 19:59:16 / 修改时间：20:13:30" itemprop="dateCreated datePublished" datetime="2020-02-24T19:59:16+08:00">2020-02-24</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 27 篇日志。 继续努力。
-      </span>
-      
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/毕业设计/" itemprop="url" rel="index"><span itemprop="name">毕业设计</span></a></span>
 
-      
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/毕业设计/问题总结/" itemprop="url" rel="index"><span itemprop="name">问题总结</span></a></span>
 
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2020">2020</h1>
-          </div>
-        
-        
 
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/02/06/06JavaScript基础学习2/" itemprop="url">
-            
-              <span itemprop="name">06JavaScript基础学习2</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-02-06T17:01:58+08:00" content="2020-02-06">
-          02-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/02/05/05JavaScript基础学习/" itemprop="url">
-            
-              <span itemprop="name">05JavaScript基础学习</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-02-05T17:37:38+08:00" content="2020-02-05">
-          02-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/02/04/04服务端功能完成总结/" itemprop="url">
-            
-              <span itemprop="name">04服务端功能完成总结</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-02-04T17:39:54+08:00" content="2020-02-04">
-          02-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/02/03/03Django框架学习/" itemprop="url">
-            
-              <span itemprop="name">03Django框架学习</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-02-03T18:49:30+08:00" content="2020-02-03">
-          02-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/02/02/02重新设计数据库/" itemprop="url">
-            
-              <span itemprop="name">02重新设计数据库</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-02-02T18:35:44+08:00" content="2020-02-02">
-          02-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2020/02/01/01毕设学习进度记录/" itemprop="url">
-            
-              <span itemprop="name">01毕设学习进度记录</span>
-            
-          </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-02-01T18:39:27+08:00" content="2020-02-01">
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-          <a class="post-title-link" href="/2019/04/14/hello-world/" itemprop="url">
             
-              <span itemprop="name">欢 迎</span>
             
-          </a>
-        
-      </h2>
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2020/02/24/24Python与FDFS交互时遇到的问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/24/24Python与FDFS交互时遇到的问题/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-14T10:34:44+08:00" content="2019-04-14">
-          04-14
-        </time>
-      </div>
+          
+          
 
-    </header>
-  </article>
+          
 
+          
 
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <blockquote>
+<p>今天使用python在本地和服务器的FastDFS进行交互，遇到了几个问题，记录一下。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="python与FDFS交互时报错"><a href="#python与FDFS交互时报错" class="headerlink" title="python与FDFS交互时报错"></a>python与FDFS交互时报错</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> fdfs_client.client <span class="keyword">import</span> Fdfs_client</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>client = Fdfs_client(<span class="string">'/etc/fdfs/client.conf'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ret = client.upload_by_filename(<span class="string">'test'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ret</span><br><span class="line">&#123;<span class="string">'Group name'</span>:<span class="string">'group1'</span>,<span class="string">'Status'</span>:<span class="string">'Upload successed.'</span>, <span class="string">'Remote file_id'</span>:<span class="string">'group1/M00/00/00/</span></span><br><span class="line"><span class="string">	wKjzh0_xaR63RExnAAAaDqbNk5E1398.py'</span>,<span class="string">'Uploaded size'</span>:<span class="string">'6.0KB'</span>,<span class="string">'Local file name'</span>:<span class="string">'test'</span></span><br><span class="line">	, <span class="string">'Storage IP'</span>:<span class="string">'192.168.243.133'</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>在测试FDFS与python交互时，输入以上代码，这是官方文档的代码，当我输入<br>ret = client.upload_by_filename(‘test’)后，就报错了。</p>
+<p>错误如下：<br>Traceback (most recent call last):<br>File “”, line 1, in<br>File “/root/.virtualenvs/Cole_py3/lib/python3.6/site-packages/fdfs_client/client.py”, line 88, in upload_by_filename<br>raise DataError(errmsg + ‘(uploading)’)<br>fdfs_client.exceptions.DataError: [-] Error: test1 is not a file.(uploading)</p>
+<p>主要还是太天真了，以为按照官方测试代码输入就没错，后来查看了client.py的代码，才发现，ret = client.upload_by_filename(’ ‘) 括号里面填写的是要在你本机存在的文件名或者文件路径<br>ret = client.upload_by_filename(’ /home/cole/python/test/test1.py ‘)<br>ret = client.upload_by_filename(’ test1.py ‘)<br>这两种写法都可以，前提是test1.py是要存在你本机</p>
+<h4 id="type-object-argument-after-must-be-a-mapping-not-str"><a href="#type-object-argument-after-must-be-a-mapping-not-str" class="headerlink" title="type object argument after ** must be a mapping, not str"></a>type object argument after ** must be a mapping, not str</h4><p>django自定义fdfs文件存储时报了这个错误。</p>
+<p>创建client实例对象的时候不能直接传入配置文件的地址字符串,否则报错.<br>错误代码:TypeError: type object argument after ** must be a mapping, not str</p>
+<p>解决办法：通过模块内<strong>get_tracker_conf</strong>函数, 获取配置文件后传入。</p>
+<p>原代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fdfs_client.client <span class="keyword">import</span> Fdfs_client</span><br><span class="line">	client = （./utils/fdfs/client.con<span class="string">f')</span></span><br><span class="line"><span class="string">	ret = client.upload_by_buffer(content.read())</span></span><br></pre></td></tr></table></figure>
+<p>修改后代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fdfs_client.client <span class="keyword">import</span> Fdfs_client, get_tracker_conf</span><br><span class="line">　　tracker_path = get_tracker_conf(<span class="string">'./utils/fdfs/client.conf'</span>)</span><br><span class="line">　　client = Fdfs_client(tracker_path)</span><br><span class="line">　　ret = client.upload_by_buffer(content.read())</span><br></pre></td></tr></table></figure>
+
+      
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+	
+    <div>
+	  
+	    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">------------- 本 文 结 束 -------------</div>
+    
+</div>
+	  
+	</div>
+	
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/毕业设计/" rel="tag"><i class="fa fa-tag"></i> 毕业设计</a>
+          
+            <a href="/tags/FastDFS/" rel="tag"><i class="fa fa-tag"></i> FastDFS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/23/搭建FastDFS及Nginx过程中遇到的问题/" rel="next" title="搭建FastDFS及Nginx过程中遇到的问题">
+                <i class="fa fa-chevron-left"></i> 搭建FastDFS及Nginx过程中遇到的问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
+  </article>
 
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
 
         </div>
         
@@ -693,8 +618,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -832,6 +766,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#python与FDFS交互时报错"><span class="nav-text">python与FDFS交互时报错</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#type-object-argument-after-must-be-a-mapping-not-str"><span class="nav-text">type object argument after ** must be a mapping, not str</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -983,6 +934,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
 
   
 
@@ -1028,6 +983,8 @@
 
 
 
+
+  
 
 
   

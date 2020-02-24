@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>24Python与FDFS交互时遇到的问题</title>
+    <url>/2020/02/24/24Python%E4%B8%8EFDFS%E4%BA%A4%E4%BA%92%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<blockquote>
+<p>今天使用python在本地和服务器的FastDFS进行交互，遇到了几个问题，记录一下。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="python与FDFS交互时报错"><a href="#python与FDFS交互时报错" class="headerlink" title="python与FDFS交互时报错"></a>python与FDFS交互时报错</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> fdfs_client.client <span class="keyword">import</span> Fdfs_client</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>client = Fdfs_client(<span class="string">'/etc/fdfs/client.conf'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ret = client.upload_by_filename(<span class="string">'test'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ret</span><br><span class="line">&#123;<span class="string">'Group name'</span>:<span class="string">'group1'</span>,<span class="string">'Status'</span>:<span class="string">'Upload successed.'</span>, <span class="string">'Remote file_id'</span>:<span class="string">'group1/M00/00/00/</span></span><br><span class="line"><span class="string">	wKjzh0_xaR63RExnAAAaDqbNk5E1398.py'</span>,<span class="string">'Uploaded size'</span>:<span class="string">'6.0KB'</span>,<span class="string">'Local file name'</span>:<span class="string">'test'</span></span><br><span class="line">	, <span class="string">'Storage IP'</span>:<span class="string">'192.168.243.133'</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>在测试FDFS与python交互时，输入以上代码，这是官方文档的代码，当我输入<br>ret = client.upload_by_filename(‘test’)后，就报错了。</p>
+<p>错误如下：<br>Traceback (most recent call last):<br>File “”, line 1, in<br>File “/root/.virtualenvs/Cole_py3/lib/python3.6/site-packages/fdfs_client/client.py”, line 88, in upload_by_filename<br>raise DataError(errmsg + ‘(uploading)’)<br>fdfs_client.exceptions.DataError: [-] Error: test1 is not a file.(uploading)</p>
+<p>主要还是太天真了，以为按照官方测试代码输入就没错，后来查看了client.py的代码，才发现，ret = client.upload_by_filename(’ ‘) 括号里面填写的是要在你本机存在的文件名或者文件路径<br>ret = client.upload_by_filename(’ /home/cole/python/test/test1.py ‘)<br>ret = client.upload_by_filename(’ test1.py ‘)<br>这两种写法都可以，前提是test1.py是要存在你本机</p>
+<h4 id="type-object-argument-after-must-be-a-mapping-not-str"><a href="#type-object-argument-after-must-be-a-mapping-not-str" class="headerlink" title="type object argument after ** must be a mapping, not str"></a>type object argument after ** must be a mapping, not str</h4><p>django自定义fdfs文件存储时报了这个错误。</p>
+<p>创建client实例对象的时候不能直接传入配置文件的地址字符串,否则报错.<br>错误代码:TypeError: type object argument after ** must be a mapping, not str</p>
+<p>解决办法：通过模块内<strong>get_tracker_conf</strong>函数, 获取配置文件后传入。</p>
+<p>原代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> fdfs_client.client <span class="keyword">import</span> Fdfs_client</span><br><span class="line">	client = （./utils/fdfs/client.con<span class="string">f')</span></span><br><span class="line"><span class="string">	ret = client.upload_by_buffer(content.read())</span></span><br></pre></td></tr></table></figure>
+<p>修改后代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> fdfs_client.client <span class="keyword">import</span> Fdfs_client, get_tracker_conf</span><br><span class="line">　　tracker_path = get_tracker_conf(<span class="string">'./utils/fdfs/client.conf'</span>)</span><br><span class="line">　　client = Fdfs_client(tracker_path)</span><br><span class="line">　　ret = client.upload_by_buffer(content.read())</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>毕业设计</category>
+        <category>问题总结</category>
+      </categories>
+      <tags>
+        <tag>毕业设计</tag>
+        <tag>FastDFS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>搭建FastDFS及Nginx过程中遇到的问题</title>
     <url>/2020/02/23/%E6%90%AD%E5%BB%BAFastDFS%E5%8F%8ANginx%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<blockquote>
