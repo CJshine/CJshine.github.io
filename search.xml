@@ -18,6 +18,11 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> fdfs_client.client <span class="keyword">import</span> Fdfs_client</span><br><span class="line">	client = （./utils/fdfs/client.con<span class="string">f')</span></span><br><span class="line"><span class="string">	ret = client.upload_by_buffer(content.read())</span></span><br></pre></td></tr></table></figure>
 <p>修改后代码：</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> fdfs_client.client <span class="keyword">import</span> Fdfs_client, get_tracker_conf</span><br><span class="line">　　tracker_path = get_tracker_conf(<span class="string">'./utils/fdfs/client.conf'</span>)</span><br><span class="line">　　client = Fdfs_client(tracker_path)</span><br><span class="line">　　ret = client.upload_by_buffer(content.read())</span><br></pre></td></tr></table></figure>
+<h4 id="python3使用fdfs上传文件时报str-returned-non-string-type-bytes-错误"><a href="#python3使用fdfs上传文件时报str-returned-non-string-type-bytes-错误" class="headerlink" title="python3使用fdfs上传文件时报str returned non-string (type bytes)错误"></a>python3使用fdfs上传文件时报<strong>str</strong> returned non-string (type bytes)错误</h4><p>上传成功后返回一个字典, 其中’Remote file_id’键对应的值由旧版模块string类型更改为byte类型。所以, 返回的文件id是byte类型，</p>
+<p>原代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">filename = result.get(<span class="string">'Remote file_id'</span>)</span><br><span class="line"><span class="keyword">return</span> filename</span><br></pre></td></tr></table></figure>
+<p>修改后代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">filename = result.get(<span class="string">'Remote file_id'</span>)</span><br><span class="line"><span class="keyword">return</span> filename.decode()</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>毕业设计</category>
