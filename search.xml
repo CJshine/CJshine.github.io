@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>兼职酱前端设计图</title>
+    <url>/2020/02/26/%E5%85%BC%E8%81%8C%E9%85%B1%E5%89%8D%E7%AB%AF%E8%AE%BE%E8%AE%A1%E5%9B%BE/</url>
+    <content><![CDATA[<blockquote>
+<p>摘要：以前做的一个项目的前端设计图，图中APP界面均为实际效果图。</p>
+</blockquote>
+<p><img src="/2020/02/26/兼职酱前端设计图/1.jpg" alt></p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端设计</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Redis随笔</title>
     <url>/2020/02/25/Redis%E9%9A%8F%E7%AC%94/</url>
     <content><![CDATA[<blockquote>
@@ -149,9 +164,9 @@
       </categories>
       <tags>
         <tag>毕业设计</tag>
+        <tag>Linux</tag>
         <tag>FastDFS</tag>
         <tag>Nginx</tag>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -313,9 +328,9 @@
       </categories>
       <tags>
         <tag>毕业设计</tag>
+        <tag>Linux</tag>
         <tag>FastDFS</tag>
         <tag>Nginx</tag>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
