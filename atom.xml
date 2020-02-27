@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-26T14:08:53.801Z</updated>
+  <updated>2020-02-27T13:16:01.296Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>27Linux上安装Anaconda3以及环境迁移</title>
+    <link href="http://yoursite.com/2020/02/27/27Linux%E4%B8%8A%E5%AE%89%E8%A3%85Anaconda3%E4%BB%A5%E5%8F%8A%E7%8E%AF%E5%A2%83%E8%BF%81%E7%A7%BB/"/>
+    <id>http://yoursite.com/2020/02/27/27Linux%E4%B8%8A%E5%AE%89%E8%A3%85Anaconda3%E4%BB%A5%E5%8F%8A%E7%8E%AF%E5%A2%83%E8%BF%81%E7%A7%BB/</id>
+    <published>2020-02-27T12:40:53.000Z</published>
+    <updated>2020-02-27T13:16:01.296Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>摘要：安装过程很简单，但是环境迁移很烦，尝试了很多次才成功，记录一下闭坑过程。</p></blockquote><a id="more"></a><h3 id="Anaconda3的安装"><a href="#Anaconda3的安装" class="headerlink" title="Anaconda3的安装"></a>Anaconda3的安装</h3><h4 id="安装包下载"><a href="#安装包下载" class="headerlink" title="安装包下载"></a>安装包下载</h4><ol><li>历史版本：<a href="https://repo.continuum.io/archive/" target="_blank" rel="noopener">https://repo.continuum.io/archive/</a></li><li>清华镜像源：<a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/</a></li></ol><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bash Anaconda3-5.0.0-Linux-x86_64.sh</span><br></pre></td></tr></table></figure><p>之后提示接下来是许可协议，按Enter继续</p><p>许可协议有很多页，按Q跳到最后，输入yes接受协议</p><p>Anaconda默认按照位置是用户的home目录下的anaconda目录，修改为/usr/local目录下(我习惯把安装的软件都放到/usr/local/下面)，Enter开始进行安装</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[/root/anaconda3] &gt;&gt;&gt; /usr/<span class="built_in">local</span>/anaconda3</span><br></pre></td></tr></table></figure><p>等待安装几分钟后，会询问是否将Anaconda目录添加到.bashrc文件的PATH中，输入yes，安装完成后刷新.bashrc文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> /root/.bashrc</span><br></pre></td></tr></table></figure><h3 id="环境迁移"><a href="#环境迁移" class="headerlink" title="环境迁移"></a>环境迁移</h3><h4 id="Windows导出环境"><a href="#Windows导出环境" class="headerlink" title="Windows导出环境"></a>Windows导出环境</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda env <span class="built_in">export</span> &gt; environment.yaml</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">conda list -e &gt; requirments.txt</span><br></pre></td></tr></table></figure><p>环境会被保存在environment.yaml文件中，我们把文件上传到Linux服务器上面，通过以下命令进行环境复现</p><h4 id="Linux环境复现"><a href="#Linux环境复现" class="headerlink" title="Linux环境复现"></a>Linux环境复现</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda env create -f environment.yaml</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">conda install --yes --file requirements.txt</span><br></pre></td></tr></table></figure><p>因为是通过conda命令来创建虚拟环境，所以环境中使用到的库也是通过conda命令来安装，但是conda库没有我们需要的库的时候，我们会从pip库里面安装，这就导致conda命令无法安装pip的库，环境迁移不成功，所以我们在进行环境迁移的时候可以直接使用pip导出库，在Linux上进行install。</p><h4 id="一种实际上更好用的方法"><a href="#一种实际上更好用的方法" class="headerlink" title="一种实际上更好用的方法"></a>一种实际上更好用的方法</h4><p>pip导出库到requirements.txt</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure><p>Linux上创建虚拟环境</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create -n envname python=3.6</span><br></pre></td></tr></table></figure><p>进入虚拟环境</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> activate envname</span><br></pre></td></tr></table></figure><p>使用pip安装需要的包</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure><p>这样就会顺利很多。</p><p><strong>Linux上Anaconda进出环境命令比Windows多了一个source</strong></p><p>进入环境：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> activate env_name</span><br></pre></td></tr></table></figure><p>退出环境：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> deactivate</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;摘要：安装过程很简单，但是环境迁移很烦，尝试了很多次才成功，记录一下闭坑过程。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="毕业设计" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="学习笔记" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+      <category term="Anaconda3" scheme="http://yoursite.com/tags/Anaconda3/"/>
+    
+  </entry>
   
   <entry>
     <title>26CentOS7上安装MySQL</title>
@@ -557,31 +586,6 @@
       <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
     
       <category term="Ionic" scheme="http://yoursite.com/tags/Ionic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>11系统整合</title>
-    <link href="http://yoursite.com/2020/02/11/11%E7%B3%BB%E7%BB%9F%E6%95%B4%E5%90%88/"/>
-    <id>http://yoursite.com/2020/02/11/11%E7%B3%BB%E7%BB%9F%E6%95%B4%E5%90%88/</id>
-    <published>2020-02-11T09:56:09.000Z</published>
-    <updated>2020-02-11T11:09:50.385Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>摘要：今天主要把前两天做的内容进行整合，整合成一个完整的系统。</p></blockquote><a id="more"></a><p>整体来说没有什么太大的问题，只是整合过程中的一些语法问题和Python的库导入问题，第二个是为了提高后台的管理，引入了xadmin，也是今天在看视频的时候接触到的，之前一直使用admin来管理，xadmin相较于admin更加强大，管理功能也更完善。</p><ol><li><p>xadmin的安装</p><ul><li>pip  install  xadmin</li></ul></li><li><p>注册xadmin</p><ul><li><p>在settings.py中注册xadmin</p></li><li><p>然后在urls.py中配置url指向xadmin</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import xadmin</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    url(r&apos;^xadmin/&apos;, xadmin.site.urls),</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li></ul></li><li><p>将user app中的admin.py文件中注册的内容注释掉。</p></li></ol><p>PC端系统的开发暂时就到这里，下个阶段主要是移动端的开发，之前接触过ionic框架，使用起来感觉很不错，虽然是基于HTML5技术的移动APP开发框架，但是开发出来的应用很接近原生开发，所以明天开始学习ionic框架。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;摘要：今天主要把前两天做的内容进行整合，整合成一个完整的系统。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="毕业设计" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-      <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
     
   </entry>
   
