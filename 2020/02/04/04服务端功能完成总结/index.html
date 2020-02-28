@@ -523,7 +523,7 @@
 <li>修改settings.py文件</li>
 </ul>
 <p>在settings.py文件后面加上两行代码：</p>
-<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#设置静态文件路径为主目录下的media文件夹</span><br><span class="line">MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')    </span><br><span class="line">#url映射</span><br><span class="line">MEDIA_URL = '/media/'</span><br></pre></td></tr></table></figure>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">#设置静态文件路径为主目录下的media文件夹</span></span><br><span class="line"><span class="xml">MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')    </span></span><br><span class="line"><span class="xml">#url映射</span></span><br><span class="line"><span class="xml">MEDIA_URL = '/media/'</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>创建模板</li>
 </ul>
@@ -683,7 +683,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">32</span>
+                    <span class="site-state-item-count">33</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
