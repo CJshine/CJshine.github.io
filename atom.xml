@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>陈剑的博客</title>
+  <title>白茶清欢</title>
   
   
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-28T12:40:43.185Z</updated>
+  <updated>2020-02-29T13:00:13.693Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>29疑难问题记录</title>
+    <link href="http://yoursite.com/2020/02/29/29%E7%96%91%E9%9A%BE%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
+    <id>http://yoursite.com/2020/02/29/29%E7%96%91%E9%9A%BE%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</id>
+    <published>2020-02-29T12:50:46.000Z</published>
+    <updated>2020-02-29T13:00:13.693Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>咦，明明在我电脑上就没问题……</p></blockquote><a id="more"></a><p>今天继续修改代码，写完代码之后启动项目发现了一个问题：</p><p>Reverse for ‘detail’ with arguments ‘(‘’,)’ not found. 1 pattern(s) tried: [‘…</p><p>总之就是url跳转时候正则匹配有问题，查了很长时间的百度，也尝试了很多种办法，但是都没有解决，url跳转感觉也没什么问题。</p><p>后来没办法只能创建了一个git分支，然后把主分支版本回退，回退到昨天的版本之后可以正常启动项目了，说明昨天的代码没有问题。</p><p>然后我又切到分支版本重新启动，这次没什么问题了，分支版本也能正常启动，就很奇怪，不知道到底是哪里不对，总感觉代码哪里有隐患。</p><p>记录一下，等哪天问题再出来了再来填坑。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;咦，明明在我电脑上就没问题……&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="毕业设计" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="问题总结" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>28页面静态化以及用户历史浏览记录的添加</title>
@@ -239,9 +264,9 @@
     
       <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
       <category term="FastDFS" scheme="http://yoursite.com/tags/FastDFS/"/>
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
       <category term="Nginx" scheme="http://yoursite.com/tags/Nginx/"/>
     
@@ -270,9 +295,9 @@
     
       <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
       <category term="FastDFS" scheme="http://yoursite.com/tags/FastDFS/"/>
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
       <category term="Nginx" scheme="http://yoursite.com/tags/Nginx/"/>
     
@@ -555,35 +580,6 @@
       <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
     
       <category term="Ionic" scheme="http://yoursite.com/tags/Ionic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>13ionic目录结构分析</title>
-    <link href="http://yoursite.com/2020/02/13/13ionic%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/"/>
-    <id>http://yoursite.com/2020/02/13/13ionic%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90/</id>
-    <published>2020-02-13T10:21:20.000Z</published>
-    <updated>2020-02-13T11:19:38.303Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>摘要：ionic目录比较复杂，但是实际操作起来比较简单，所有页面都是模块化的。</p></blockquote><a id="more"></a><p><img src="/2020/02/13/13ionic目录结构分析/1.png" alt="image-20200213184457342"></p><p>e2e：端对端测试文件(一般情况下不用管)</p><p>node_modules ：项目所需要的依赖包 resources ：android/ios 资源（更换图标和启</p><p>动动画）</p><p>src：开发工作目录，页面、样式、脚本和图片都放在这个目录下 （很重要） </p><p>angular.json angular 配置文件</p><p>config.xml: 打包成app 的配置文件</p><p>package.json: 配置项目的元数据和管理项目所需要的依赖</p><p>ionic.config.json、ionic.starter.json：ionic 配置文件</p><p>tsconfig.json: TypeScript 项目的根目录，指定用来编译这个项目的根文件和编译选项</p><p>tslint.json：格式化和校验typescript</p><p><strong>其他还会出现的文件：</strong></p><p>在运行<code>ionic build --prod</code>命令之后还会出现一个www文件夹，这是页面的静态文件夹</p><p>运行<code>cordova platform add android</code>打包命令后还会出现一个platforms文件夹，里面放油生成Android或iOS安装包所需要的资源</p><p>plugins：插件文件夹，里面放置各种cordova安装的插件</p><p><strong>src目录分析：</strong></p><p><img src="/2020/02/13/13ionic目录结构分析/2.png" alt="image-20200213185626342"></p><p><strong>app:</strong>项目所需要的模块，组件，服务等</p><p><strong>assets:</strong>项目的静态文件，主要是图片等等</p><p><strong>environment：</strong>环境相关文件，配置项目运行的环境</p><p><strong>theme：</strong>主题文件，可以修改项目的默认主题，比如配色</p><p><strong>global.scss：</strong>全局css样式文件</p><p><strong>index.html：</strong>入口文件</p><p><strong>main.ts：</strong>主入口文件</p><p><strong>polyfills.ts：</strong>填充库，在项目加载之前完成</p><p><strong>test：</strong>测试文件</p><p><strong>zone-flags.ts：</strong>配置文件</p><p>ionic中有很多配置相关的文件，并不需要每一个都去学习，我们只要知道一些常用的就可以尝试开发功能了。</p><p>好了，ionic的安装和介绍就学到这里，其实这几天还学了一些如何开发，做了几个简单的静态页面，就不写了，明天开始尝试做功能。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;摘要：ionic目录比较复杂，但是实际操作起来比较简单，所有页面都是模块化的。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="毕业设计" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
-    
-      <category term="移动端应用搭建" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BA%94%E7%94%A8%E6%90%AD%E5%BB%BA/"/>
-    
-    
-      <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
-    
-      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
     
   </entry>
   

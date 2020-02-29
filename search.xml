@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>29疑难问题记录</title>
+    <url>/2020/02/29/29%E7%96%91%E9%9A%BE%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<blockquote>
+<p>咦，明明在我电脑上就没问题……</p>
+</blockquote>
+<a id="more"></a>
+<p>今天继续修改代码，写完代码之后启动项目发现了一个问题：</p>
+<p>Reverse for ‘detail’ with arguments ‘(‘’,)’ not found. 1 pattern(s) tried: [‘…</p>
+<p>总之就是url跳转时候正则匹配有问题，查了很长时间的百度，也尝试了很多种办法，但是都没有解决，url跳转感觉也没什么问题。</p>
+<p>后来没办法只能创建了一个git分支，然后把主分支版本回退，回退到昨天的版本之后可以正常启动项目了，说明昨天的代码没有问题。</p>
+<p>然后我又切到分支版本重新启动，这次没什么问题了，分支版本也能正常启动，就很奇怪，不知道到底是哪里不对，总感觉代码哪里有隐患。</p>
+<p>记录一下，等哪天问题再出来了再来填坑。</p>
+]]></content>
+      <categories>
+        <category>毕业设计</category>
+        <category>问题总结</category>
+      </categories>
+  </entry>
+  <entry>
     <title>28页面静态化以及用户历史浏览记录的添加</title>
     <url>/2020/02/28/28%E9%A1%B5%E9%9D%A2%E9%9D%99%E6%80%81%E5%8C%96%E4%BB%A5%E5%8F%8A%E7%94%A8%E6%88%B7%E5%8E%86%E5%8F%B2%E6%B5%8F%E8%A7%88%E8%AE%B0%E5%BD%95%E7%9A%84%E6%B7%BB%E5%8A%A0/</url>
     <content><![CDATA[<blockquote>
@@ -342,8 +361,8 @@
       </categories>
       <tags>
         <tag>毕业设计</tag>
-        <tag>Linux</tag>
         <tag>FastDFS</tag>
+        <tag>Linux</tag>
         <tag>Nginx</tag>
       </tags>
   </entry>
@@ -506,8 +525,8 @@
       </categories>
       <tags>
         <tag>毕业设计</tag>
-        <tag>Linux</tag>
         <tag>FastDFS</tag>
+        <tag>Linux</tag>
         <tag>Nginx</tag>
       </tags>
   </entry>
@@ -1320,7 +1339,7 @@
 <li>修改settings.py文件</li>
 </ul>
 <p>在settings.py文件后面加上两行代码：</p>
-<figure class="highlight django"><table><tr><td class="code"><pre><span class="line"><span class="xml">#设置静态文件路径为主目录下的media文件夹</span></span><br><span class="line"><span class="xml">MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')    </span></span><br><span class="line"><span class="xml">#url映射</span></span><br><span class="line"><span class="xml">MEDIA_URL = '/media/'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight django"><table><tr><td class="code"><pre><span class="line">#设置静态文件路径为主目录下的media文件夹</span><br><span class="line">MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')    </span><br><span class="line">#url映射</span><br><span class="line">MEDIA_URL = '/media/'</span><br></pre></td></tr></table></figure>
 <ul>
 <li>创建模板</li>
 </ul>
