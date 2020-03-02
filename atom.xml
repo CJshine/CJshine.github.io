@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-01T11:28:07.769Z</updated>
+  <updated>2020-03-02T13:46:58.002Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>31关于毕设的一些思考</title>
+    <link href="http://yoursite.com/2020/03/02/31%E5%85%B3%E4%BA%8E%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/"/>
+    <id>http://yoursite.com/2020/03/02/31%E5%85%B3%E4%BA%8E%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/</id>
+    <published>2020-03-02T13:02:15.000Z</published>
+    <updated>2020-03-02T13:46:58.002Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>摘要：随着毕业设计的深入，对项目也积累了一些认识，虽然在开发的路上还刚刚起步，但是这几天静下心来敲代码感觉还是爱上了这种产品在手中一步步成型的感觉。</p></blockquote><a id="more"></a><h4 id="做好自己的选择"><a href="#做好自己的选择" class="headerlink" title="做好自己的选择"></a>做好自己的选择</h4><p>程序世界里面可以选择的技术千千万万，每年的新技术也不停的出现，因此做技术注定是学习无止境的，提前选好自己的技术路线是一个首要性的问题，然后逐渐往深挖掘，往广拓展，这要比浅尝辄止重要得多。</p><h4 id="做项目应该求快还是应该求好"><a href="#做项目应该求快还是应该求好" class="headerlink" title="做项目应该求快还是应该求好"></a>做项目应该求快还是应该求好</h4><p>从某种目的出发，如果是老师或者课程要求的话，我认为应该注重功能，把更多的精力放到功能实现上去，如果时间富裕，可以充分向外拓展，使用更高级的技术，或者往深挖掘，探索更优的策略，优化项目。</p><p>如果是自己做项目，我觉得还是尽量打磨得更加精美比较好，让体验更加好一些，可以尝试研究一些技术之外的东西运用在项目里面，比如项目中如何贴近用户习惯，用户心理等等。</p><h4 id="规划自我发展路线"><a href="#规划自我发展路线" class="headerlink" title="规划自我发展路线"></a>规划自我发展路线</h4><p>及早去探索发现自己的发展路线，很多涉及到自身的发展问题不要抱着“水到渠成”，“车到山前必有路”这样的想法，时间越长，我越发现路是自己探索出来的，有时候也许发现是错的，但是总比停在原地要好，时常抬抬头看看前面的路可以更好的走好脚下的路。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;摘要：随着毕业设计的深入，对项目也积累了一些认识，虽然在开发的路上还刚刚起步，但是这几天静下心来敲代码感觉还是爱上了这种产品在手中一步步成型的感觉。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="毕业设计" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="问题总结" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>30使用haystack进行全文检索</title>
@@ -551,35 +576,6 @@
       <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
     
       <category term="TypeScript" scheme="http://yoursite.com/tags/TypeScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>15ionic的组件</title>
-    <link href="http://yoursite.com/2020/02/15/15ionic%E7%9A%84%E7%BB%84%E4%BB%B6/"/>
-    <id>http://yoursite.com/2020/02/15/15ionic%E7%9A%84%E7%BB%84%E4%BB%B6/</id>
-    <published>2020-02-15T11:29:10.000Z</published>
-    <updated>2020-02-15T11:48:50.186Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>摘要：今天学了一些ionic的相关组件，官网提供了相关的文档。我主要在需要的时候上官网进行查阅。</p></blockquote><a id="more"></a><h4 id="ionic只是一个容器"><a href="#ionic只是一个容器" class="headerlink" title="ionic只是一个容器"></a>ionic只是一个容器</h4><p>在使用ionic的过程中发现，Ionic只是一个容易，它里面放着一些我们常用的东西供我们使用，比如Angular，React，TypeScript等等，我们用的时候只需要用相关的东西去描述我们想要的内容，描述完成Ionic会自动使用相关的技术帮我们搭建好这些东西，至于搭建的过程我们不需要去管，只要交给Ionic就可以了，我们可以更加专注于前端。</p><h4 id="typescript的学习"><a href="#typescript的学习" class="headerlink" title="typescript的学习"></a>typescript的学习</h4><p>做的过程中发现ionic更多地用到TypeScript语言，TypeScript相比于JavaScript虽然说是它的超集，但是typescript实际上是一门面向对象的语言，它包含了 JavaScript 的所有元素，可以载入 JavaScript 代码运行，并扩展了 JavaScript 的语法。</p><p>正是因为TypeScript增加了静态类型，类，模块，接口和类型注解，所以TypeScript可以用于大型应用的开发，学习起来也更容易。所以我还想继续深入学习一下TypeScript，算是立一个flag吧，接下来几天边做移动端的开发边学习TypeScript。</p><p>加油加油加油！</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;摘要：今天学了一些ionic的相关组件，官网提供了相关的文档。我主要在需要的时候上官网进行查阅。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="毕业设计" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
-    
-      <category term="移动端应用搭建" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%BA%94%E7%94%A8%E6%90%AD%E5%BB%BA/"/>
-    
-    
-      <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
-    
-      <category term="Ionic" scheme="http://yoursite.com/tags/Ionic/"/>
     
   </entry>
   
