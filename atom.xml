@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-04T13:15:04.272Z</updated>
+  <updated>2020-03-05T13:41:19.549Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>34python-alipay的SDK应用</title>
+    <link href="http://yoursite.com/2020/03/05/34python-alipay%E7%9A%84SDK%E5%BA%94%E7%94%A8/"/>
+    <id>http://yoursite.com/2020/03/05/34python-alipay%E7%9A%84SDK%E5%BA%94%E7%94%A8/</id>
+    <published>2020-03-05T13:41:19.000Z</published>
+    <updated>2020-03-05T13:41:19.549Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>33使用uwsgi作为服务器</title>
@@ -50,7 +65,7 @@
     <published>2020-03-03T13:16:41.000Z</published>
     <updated>2020-03-04T13:31:30.886Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>摘要：Django自带有admin后台，但是其风格并不漂亮、功能也不是让人很满意。 所以从网上找了xadmin用来替换。</p></blockquote><a id="more"></a><h4 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h4><p>项目github地址为<a href="https://github.com/sshwsfc/xadmin，其中的xadmin文件夹是源码文件夹。" target="_blank" rel="noopener">https://github.com/sshwsfc/xadmin，其中的xadmin文件夹是源码文件夹。</a></p><h4 id="放置文件夹"><a href="#放置文件夹" class="headerlink" title="放置文件夹"></a>放置文件夹</h4><p>把xadmin文件夹放置在项目文件夹下面的，和templates同一级目录即可。</p><h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">NSTALLED_APPS = [</span><br><span class="line">    &apos;django.contrib.admin&apos;,</span><br><span class="line">    &apos;django.contrib.auth&apos;,</span><br><span class="line">    &apos;django.contrib.contenttypes&apos;,</span><br><span class="line">    &apos;django.contrib.sessions&apos;,</span><br><span class="line">    &apos;django.contrib.messages&apos;,</span><br><span class="line">    &apos;django.contrib.staticfiles&apos;,</span><br><span class="line">    &apos;xadmin&apos;,#添加</span><br><span class="line">    &apos;crispy_forms&apos;,#添加</span><br><span class="line">    &apos;reversion&apos;,#添加(可选)</span><br><span class="line">]</span><br></pre></td></tr></table></figure><h4 id="修改主路由"><a href="#修改主路由" class="headerlink" title="修改主路由"></a>修改主路由</h4><figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">from django.conf.urls import url,include</span><br><span class="line"></span><br><span class="line"># from django.contrib import admin 注释admin</span><br><span class="line"></span><br><span class="line">#以下四句为新添加内容</span><br><span class="line"></span><br><span class="line">import xadmin </span><br><span class="line">xadmin.autodiscover()</span><br><span class="line"></span><br><span class="line">from xadmin.plugins import xversion</span><br><span class="line">xversion.register_models()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">  # url(r'^admin/', admin.site.urls),注释原路由</span><br><span class="line">  url(r'^xadmin/',include(xadmin.site.urls)), #添加新路由</span><br><span class="line">]</span><br></pre></td></tr></table></figure><h4 id="在应用中新建adminx-py文件"><a href="#在应用中新建adminx-py文件" class="headerlink" title="在应用中新建adminx.py文件"></a>在应用中新建adminx.py文件</h4><p>文件必须命名为这个名字，用于替换原有的admin文件，以后admin中的操作放到adminx中即可。</p><p>到此就可以了，xadmin还是非常方便好用，界面看起来也很舒适。</p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>摘要：Django自带有admin后台，但是其风格并不漂亮、功能也不是让人很满意。 所以从网上找了xadmin用来替换。</p></blockquote><a id="more"></a><h4 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h4><p>项目github地址为<a href="https://github.com/sshwsfc/xadmin，其中的xadmin文件夹是源码文件夹。" target="_blank" rel="noopener">https://github.com/sshwsfc/xadmin，其中的xadmin文件夹是源码文件夹。</a></p><h4 id="放置文件夹"><a href="#放置文件夹" class="headerlink" title="放置文件夹"></a>放置文件夹</h4><p>把xadmin文件夹放置在项目文件夹下面的，和templates同一级目录即可。</p><h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">NSTALLED_APPS = [</span><br><span class="line">    &apos;django.contrib.admin&apos;,</span><br><span class="line">    &apos;django.contrib.auth&apos;,</span><br><span class="line">    &apos;django.contrib.contenttypes&apos;,</span><br><span class="line">    &apos;django.contrib.sessions&apos;,</span><br><span class="line">    &apos;django.contrib.messages&apos;,</span><br><span class="line">    &apos;django.contrib.staticfiles&apos;,</span><br><span class="line">    &apos;xadmin&apos;,#添加</span><br><span class="line">    &apos;crispy_forms&apos;,#添加</span><br><span class="line">    &apos;reversion&apos;,#添加(可选)</span><br><span class="line">]</span><br></pre></td></tr></table></figure><h4 id="修改主路由"><a href="#修改主路由" class="headerlink" title="修改主路由"></a>修改主路由</h4><figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">from django.conf.urls import url,include</span></span><br><span class="line"></span><br><span class="line"><span class="xml"># from django.contrib import admin 注释admin</span></span><br><span class="line"></span><br><span class="line"><span class="xml">#以下四句为新添加内容</span></span><br><span class="line"></span><br><span class="line"><span class="xml">import xadmin </span></span><br><span class="line"><span class="xml">xadmin.autodiscover()</span></span><br><span class="line"></span><br><span class="line"><span class="xml">from xadmin.plugins import xversion</span></span><br><span class="line"><span class="xml">xversion.register_models()</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="xml">urlpatterns = [</span></span><br><span class="line"><span class="xml">  # url(r'^admin/', admin.site.urls),注释原路由</span></span><br><span class="line"><span class="xml">  url(r'^xadmin/',include(xadmin.site.urls)), #添加新路由</span></span><br><span class="line"><span class="xml">]</span></span><br></pre></td></tr></table></figure><h4 id="在应用中新建adminx-py文件"><a href="#在应用中新建adminx-py文件" class="headerlink" title="在应用中新建adminx.py文件"></a>在应用中新建adminx.py文件</h4><p>文件必须命名为这个名字，用于替换原有的admin文件，以后admin中的操作放到adminx中即可。</p><p>到此就可以了，xadmin还是非常方便好用，界面看起来也很舒适。</p>]]></content>
     
     <summary type="html">
     
@@ -547,31 +562,6 @@
       <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
     
       <category term="Django2.0" scheme="http://yoursite.com/tags/Django2-0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一种解决github项目下载失败的方法</title>
-    <link href="http://yoursite.com/2020/02/17/%E4%B8%80%E7%A7%8D%E8%A7%A3%E5%86%B3github%E9%A1%B9%E7%9B%AE%E4%B8%8B%E8%BD%BD%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%96%B9%E6%B3%95/"/>
-    <id>http://yoursite.com/2020/02/17/%E4%B8%80%E7%A7%8D%E8%A7%A3%E5%86%B3github%E9%A1%B9%E7%9B%AE%E4%B8%8B%E8%BD%BD%E5%A4%B1%E8%B4%A5%E7%9A%84%E6%96%B9%E6%B3%95/</id>
-    <published>2020-02-17T13:32:49.000Z</published>
-    <updated>2020-02-17T14:03:41.135Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>摘要：借助码云实现第三方快速下载</p></blockquote><a id="more"></a><p>今天下载一个 <del>比较大型</del> 30m大小的项目的时候由于网络问题接连失败，然后在网上找了一种可行的方法，记录下来。</p><h4 id="1-首先需要一个码云账户，如果你没有，这个是官网地址https-gitee-com"><a href="#1-首先需要一个码云账户，如果你没有，这个是官网地址https-gitee-com" class="headerlink" title="1. 首先需要一个码云账户，如果你没有，这个是官网地址https://gitee.com/"></a>1. 首先需要一个码云账户，如果你没有，这个是官网地址<a href="https://gitee.com/" target="_blank" rel="noopener">https://gitee.com/</a></h4><p><img src="/2020/02/17/一种解决github项目下载失败的方法/1.png" alt></p><h4 id="2-注册一个账号"><a href="#2-注册一个账号" class="headerlink" title="2. 注册一个账号"></a>2. 注册一个账号</h4><p><img src="/2020/02/17/一种解决github项目下载失败的方法/2.png" alt="image-20200217214348392"></p><h4 id="3-新建一个仓库"><a href="#3-新建一个仓库" class="headerlink" title="3.新建一个仓库"></a>3.新建一个仓库</h4><p><img src="/2020/02/17/一种解决github项目下载失败的方法/3.png" alt="image-20200217214722401"></p><h4 id="4-选择导入已有仓库"><a href="#4-选择导入已有仓库" class="headerlink" title="4. 选择导入已有仓库"></a>4. 选择导入已有仓库</h4><p><img src="/2020/02/17/一种解决github项目下载失败的方法/4.png" alt="image-20200217214928948"></p><h4 id="5-复制github项目地址"><a href="#5-复制github项目地址" class="headerlink" title="5.复制github项目地址"></a>5.复制github项目地址</h4><p><img src="/2020/02/17/一种解决github项目下载失败的方法/5.png" alt="image-20200217215524197"></p><h4 id="6-粘贴刚刚刚创建的仓库，然后点击创建"><a href="#6-粘贴刚刚刚创建的仓库，然后点击创建" class="headerlink" title="6.粘贴刚刚刚创建的仓库，然后点击创建"></a>6.粘贴刚刚刚创建的仓库，然后点击创建</h4><p><img src="/2020/02/17/一种解决github项目下载失败的方法/6.png" alt="image-20200217215817678"></p><h4 id="7-等待创建完成之后的，将仓库下载到本地"><a href="#7-等待创建完成之后的，将仓库下载到本地" class="headerlink" title="7.等待创建完成之后的，将仓库下载到本地"></a>7.等待创建完成之后的，将仓库下载到本地</h4><p><img src="/2020/02/17/一种解决github项目下载失败的方法/7.png" alt="image-20200217220141506"></p><p>输入验证码之后就可以用正常网速下载项目到本地了。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;摘要：借助码云实现第三方快速下载&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="桌边闲话" scheme="http://yoursite.com/categories/%E6%A1%8C%E8%BE%B9%E9%97%B2%E8%AF%9D/"/>
-    
-    
-      <category term="github" scheme="http://yoursite.com/tags/github/"/>
     
   </entry>
   
