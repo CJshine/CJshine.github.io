@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>35Python3使用支付宝接口</title>
+    <url>/2020/03/06/35Python3%E4%BD%BF%E7%94%A8%E6%94%AF%E4%BB%98%E5%AE%9D%E6%8E%A5%E5%8F%A3/</url>
+    <content><![CDATA[<blockquote>
+<p>摘要：因为官方没有提供Python的SDK，所以我采用了github上一个开源的第三方SDK。</p>
+</blockquote>
+<a id="more"></a>
+<p><strong>python-alipay-sdk:</strong> <a href="https://github.com/fzlee/alipay" target="_blank" rel="noopener">https://github.com/fzlee/alipay</a></p>
+<p><strong>python3使用python-alipay-sdk对接支付宝的时候，可能会出现以下error</strong><br><strong>不支持RSA密钥格式</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">alipay = AliPay(</span><br><span class="line">    appid=<span class="string">"2016101900723846"</span>,</span><br><span class="line">    app_notify_url=<span class="literal">None</span>,  <span class="comment"># 默认回调url</span></span><br><span class="line">    app_private_key_string=os.path.join(settings.BASE_DIR, <span class="string">'apps/order/app_private_key.pem'</span>),</span><br><span class="line">    <span class="comment"># 支付宝的公钥，验证支付宝回传消息使用，不是你自己的公钥,</span></span><br><span class="line">    alipay_public_key_string=os.path.join(settings.BASE_DIR, <span class="string">'apps/order/alipay_public_key.pem'</span>),</span><br><span class="line">    sign_type=<span class="string">"RSA2"</span>,  <span class="comment"># RSA 或者 RSA2</span></span><br><span class="line">    debug = <span class="literal">True</span>  <span class="comment"># 默认False</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>运行时出现错误：<strong>ValueError：RSA key format is not supported</strong></p>
+<p><strong>解决办法:<br>把公钥和私钥的内容先读出来，然后再用读出来的内容去创建Alipay对象</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">app_private_key_string = open(os.path.join(settings.BASE_DIR, <span class="string">'apps/order/app_private_key.pem'</span>)).read()</span><br><span class="line">alipay_public_key_string = open(os.path.join(settings.BASE_DIR, <span class="string">'apps/order/alipay_public_key.pem'</span>)).read()</span><br><span class="line">        </span><br><span class="line">alipay = AliPay(</span><br><span class="line">    appid=<span class="string">"2016101900723846"</span>,</span><br><span class="line">    app_notify_url=<span class="literal">None</span>,  <span class="comment"># 默认回调url</span></span><br><span class="line">    app_private_key_string=app_private_key_string,</span><br><span class="line">    <span class="comment"># 支付宝的公钥，验证支付宝回传消息使用，不是你自己的公钥,</span></span><br><span class="line">    alipay_public_key_string=alipay_public_key_string,</span><br><span class="line">    sign_type=<span class="string">"RSA2"</span>,  <span class="comment"># RSA 或者 RSA2</span></span><br><span class="line">    debug = <span class="literal">True</span>  <span class="comment"># 默认False</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>本来想投机取巧一下，其实按照作者给的文档即可完美运行。</p>
+]]></content>
+      <categories>
+        <category>毕业设计</category>
+        <category>问题总结</category>
+      </categories>
+  </entry>
+  <entry>
     <title>34python-alipay的SDK应用</title>
     <url>/2020/03/05/34python-alipay%E7%9A%84SDK%E5%BA%94%E7%94%A8/</url>
     <content><![CDATA[]]></content>
