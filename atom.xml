@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-06T12:54:57.718Z</updated>
+  <updated>2020-03-07T13:41:29.191Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>36CSS相关知识</title>
+    <link href="http://yoursite.com/2020/03/07/36CSS%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/"/>
+    <id>http://yoursite.com/2020/03/07/36CSS%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/</id>
+    <published>2020-03-07T13:38:35.000Z</published>
+    <updated>2020-03-07T13:41:29.191Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>摘要：web前端面试CSS篇</p></blockquote><a id="more"></a><ol><li><h5 id="CSS-盒子模型，绝对定位和相对定位"><a href="#CSS-盒子模型，绝对定位和相对定位" class="headerlink" title="CSS 盒子模型，绝对定位和相对定位"></a>CSS 盒子模型，绝对定位和相对定位</h5><p><strong>盒子模型</strong>也叫框模型，它规定了元素框处理元素内容、内边距、边框 和 外边距 的方式。在HTML文档中，每个元素都有盒子模型。</p><p>CSS盒子模型包含了内容（content）、内边距（padding）、边框（border）、外边距（margin）、宽度（width）、高度（height）几个要素，如图（图为标准盒子模型）</p><p><strong>绝对定位（absolute）的概念</strong>：如果设置它的偏移量，将会影响其他元素的位置。设置绝对定位时，元素会相对于离自己最近的设置了绝对定位的父元素进行定位。</p><p><strong>相对定位（relative）的概念</strong>：通过设置可使边框“相对于”它的起点移动，不影响其他元素的位置，依旧占据着原来的空间。</p></li><li><h5 id="清除浮动，什么时候需要清除浮动，清除浮动都有哪些方法"><a href="#清除浮动，什么时候需要清除浮动，清除浮动都有哪些方法" class="headerlink" title="清除浮动，什么时候需要清除浮动，清除浮动都有哪些方法"></a>清除浮动，什么时候需要清除浮动，清除浮动都有哪些方法</h5><p>浮动float最开始出现的意义是为了让文字环绕图片而已，后来用于让三个块级元素并排展示，这时候就出现了浮动</p><p>不过，由于float会导致浮动元素的父元素高度坍塌，所以，这时候就要去清除浮动。</p><p><strong>清除浮动的方式：</strong><br>解决这种问题的方式主要有两种：</p><ol><li><p>在父元素内添加冗余元素clear:both;</p><p>Clear属性存在的值有left,right,both,none,inherit.<br>如果是left,则表示在左侧不允许出现浮动元素，意思就是对父元素中左边的子元素起作用。</p></li><li><p>在父元素中设置属性overflow:hidden||auto</p><p>增加后，父元素会形成一个块级格式化上下文，即BFC，overflow: hidden本意是将父元素中溢出的内容裁切掉，而BFC中，在计算父元素真实高度时候，也把float元素的高度算入其中，所以在计算裁切的同时，顺带达成了清除浮动的目的。</p><p>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之亦然。<br>计算BFC的高度时，浮动元素也参与计算。</p></li></ol></li><li><p>如何保持浮层水平垂直居中</p><p>利用flexbox</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">　<span class="attribute">justify-content</span>:center;</span><br><span class="line">　<span class="attribute">align-items</span>:center;</span><br><span class="line">　<span class="attribute">display</span>: -webkit-flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>position 和 display 的取值和各自的意思和用法</p><ul><li><p>position属性取值：static(默认)、relative、absolute、fixed、inherit。</p><ul><li>static；始终处于文档流给予的位置。看起来好像没有用，但它可以快速取消定位，让top，right，bottom，left的值失效。在切换的时候可以尝试这个方法。</li><li>除了static值，在其他三个值的设置下，z-index才会起作用。（确切地说z-index只在定位元素上有效）</li><li>relative和absolute都可以用于定位，区别在于前者的div还属于正常的文档流，后者已经是脱离了正常文档流，不占据空间位置，不会将父类撑开。定位原点relative是相对于它在正常流中的默认位置偏移，它原本占据的空间任然保留；absolute相对于第一个position属性值不为static的父类。所以设置了position：absolute，其父类的该属性值要注意，而且overflow：hidden也不能乱设置，因为不属于正常文档流，不会占据父类的高度，也就不会有滚动条。</li><li>fixed 旧版本IE不支持，定位原点相对于浏览器窗口，而且不能变。常用于header，footer，或者一些固定的悬浮div，随滚动条滚动又稳定又流畅，比JS好多了。fixed可以有很多创造性的布局和作用，兼容性是问题。</li><li>inherit。规定从父类继承position属性的值。但是任何版本的IE都不支持该属性值。</li></ul></li><li><p>display属性取值：none、inline、inline-block、block、flex、inherit。</p><ul><li>display属性规定元素应该生成的框的类型。文档内任何元素都是框，块框或行内框。</li><li>none和visiability：hidden都可以隐藏div，区别有点像absolute和relative，前者不占据文档的空间，后者还是占据文档的位置。</li><li>inline和block，又叫行内元素和块级元素。表现出来的区别就是block独占一行，在浏览器中通常垂直布局，可以用margin来控制块级元素之间的间距；而inline以水平方式布局，垂直方向的margin和padding都是无效的，大小跟内容一样，且无法设置宽高。inline就像塑料袋，内容怎么样，就长得怎么样；block就像盒子，有固定的宽和高。</li><li>inline-block就介于两者之间。</li><li>flex 意为”弹性盒布局模型”，用来为盒状模型提供最大的灵活性。任何一个容器都可以指定为flex布局。设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。采用flex布局的元素，称为flex容器。它的所有子元素自动成为容器成员，称为flex项目（flex item）。</li></ul></li></ul></li><li><p>样式的层级关系，选择器优先级，样式冲突，以及抽离样式模块怎么写，说出思路，有无实践经验</p><p><strong>样式的层级关系：</strong>一个是权重，另一个就是共用样式和私用样式了，比如说两个ul，它们的子元素除了背景色之外都一样，那可以直接用li {}来定义相同的公用样式，用 .ul_1 li {} ， .ul_2 li {} 来定义不相同的样式。可以根据元素之间的差别来选择用哪种方法。推荐用多层级的方式书写css选择器。</p><p><strong>选择器优先级：</strong>（!important&gt;）id选择器&gt;class选择器（属性选择器/伪类选择器）&gt;标签选择器（伪元素选择器） 同类选择符条件下层级越多的优先级越高。优先级就近原则，同权重情况下样式定义最近者为准。载入样式以最后载入的定位为准。</p><p><strong>样式冲突：</strong>  如果同个元素有两个或以上冲突的CSS规则，浏览器有一些基本的规则来决定哪一个非常特殊而胜出。  选择器一样的情况下后面的会覆盖前面的属性。</p><p><strong>抽离样式模块：</strong>因为浏览器的兼容问题，不同浏览器对有些标签的默认值是不同的，如果没对CSS初始化往往会出现浏览器之间的页面显示差异。当然，初始化样式会对SEO有一定的影响，但鱼和熊掌不可兼得，但力求影响最小的情况下初始化。</p></li><li><p>css3动画效果属性，canvas、svg的区别，CSS3中新增伪类举例</p></li><li><p>px和em和rem的区别，CSS中link 和@import的区别是?</p></li><li><p>了解过flex吗?</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;摘要：web前端面试CSS篇&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="web前端面试" scheme="http://yoursite.com/categories/web%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/"/>
+    
+      <category term="CSS" scheme="http://yoursite.com/categories/web%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/CSS/"/>
+    
+    
+      <category term="CSS" scheme="http://yoursite.com/tags/CSS/"/>
+    
+  </entry>
   
   <entry>
     <title>35Python3使用支付宝接口</title>
@@ -531,33 +558,6 @@
       <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
     
       <category term="Django2.0" scheme="http://yoursite.com/tags/Django2-0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>19使用邮箱进行账号激活</title>
-    <link href="http://yoursite.com/2020/02/19/19%E4%BD%BF%E7%94%A8%E9%82%AE%E7%AE%B1%E8%BF%9B%E8%A1%8C%E8%B4%A6%E5%8F%B7%E6%BF%80%E6%B4%BB/"/>
-    <id>http://yoursite.com/2020/02/19/19%E4%BD%BF%E7%94%A8%E9%82%AE%E7%AE%B1%E8%BF%9B%E8%A1%8C%E8%B4%A6%E5%8F%B7%E6%BF%80%E6%B4%BB/</id>
-    <published>2020-02-19T12:36:25.000Z</published>
-    <updated>2020-02-19T12:42:10.906Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>摘要：今天对登录注册模块进行重新设计，增加了邮箱激活功能。</p></blockquote><a id="more"></a><h4 id="邮箱开启STMP服务"><a href="#邮箱开启STMP服务" class="headerlink" title="邮箱开启STMP服务"></a>邮箱开启STMP服务</h4><p>可以免费开启STMP服务的邮箱有163,126，QQ，我选择的是QQ邮箱</p><p><img src="/2020/02/19/19使用邮箱进行账号激活/1.png" alt="image-20200219134229787"></p><p>选择设置下面的账户，下滑找到STMP服务一项，选择开启</p><p><img src="/2020/02/19/19使用邮箱进行账号激活/2.png" alt="image-20200219134522351"></p><p><img src="/2020/02/19/19使用邮箱进行账号激活/3.png" alt="image-20200219134738744"></p><p>使用密保手机发送一条信息</p><p><img src="/2020/02/19/19使用邮箱进行账号激活/4.png" alt="image-20200219134903997"></p><p>然后就可以拿到开启STMP服务的授权码，我们将授权码复制下来保存</p><h4 id="配置项目settings-py文件"><a href="#配置项目settings-py文件" class="headerlink" title="配置项目settings.py文件"></a>配置项目settings.py文件</h4><p>在项目的settings.py文件中加上以下配置</p><figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"># 发送邮件配置</span></span><br><span class="line"><span class="xml"># SMTP服务地址</span></span><br><span class="line"><span class="xml">EMAIL_HOST = "smtp.qq.com"</span></span><br><span class="line"><span class="xml">EMAIL_PORT = 25</span></span><br><span class="line"><span class="xml"># 发送邮件的邮箱</span></span><br><span class="line"><span class="xml">EMAIL_HOST_USER = "你的邮箱"</span></span><br><span class="line"><span class="xml"># 客户端授权码密码</span></span><br><span class="line"><span class="xml">EMAIL_HOST_PASSWORD = "刚刚复制的授权码"</span></span><br><span class="line"><span class="xml">EMAIL_USE_TLS= False</span></span><br><span class="line"><span class="xml"># 收件人看到的发件人</span></span><br><span class="line"><span class="xml">EMAIL_FROM = "你的邮箱"</span></span><br></pre></td></tr></table></figure><h4 id="在响应的应用的views-py文件中新建视图send"><a href="#在响应的应用的views-py文件中新建视图send" class="headerlink" title="在响应的应用的views.py文件中新建视图send"></a>在响应的应用的views.py文件中新建视图send</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用Django内置的邮件库进行邮件发送</span></span><br><span class="line"><span class="keyword">from</span> django.core.mail <span class="keyword">import</span> send_mail</span><br><span class="line"><span class="keyword">from</span> itsdangerous <span class="keyword">import</span> TimedJSONWebSignatureSerializer <span class="keyword">as</span> Serializer</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用itsdangerous对用户ID进行加密,生成激活token</span></span><br><span class="line"><span class="comment"># ID加密是为了防止用户恶意攻击</span></span><br><span class="line">serializer = Serializer(settings.SECRET_KEY, <span class="number">3600</span>)</span><br><span class="line">info = &#123;<span class="string">'confirm'</span>:user.id&#125;</span><br><span class="line">token = serializer.dumps(info)</span><br><span class="line">token = token.decode()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发邮件</span></span><br><span class="line">subject = <span class="string">"邮件标题"</span></span><br><span class="line">message = <span class="string">'邮件正文'</span></span><br><span class="line">html_message = <span class="string">'请点击下面的链接激活您的账号&lt;br/&gt;&lt;a href=" 激活链接 "&gt;激活链接 &lt;/a&gt;'</span> %      </span><br><span class="line">send = settings.EMAIL_FROM</span><br><span class="line">receiver = [email]</span><br><span class="line">send_mail(subject, message, send, receiver,html_message=html_message)</span><br></pre></td></tr></table></figure><h4 id="配置响应应用的urls-py"><a href="#配置响应应用的urls-py" class="headerlink" title="配置响应应用的urls.py"></a>配置响应应用的urls.py</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用re_path进行正则路径匹配，path无法进行正则匹配</span></span><br><span class="line">re_path(<span class="string">r"^active/(?P&lt;token&gt;.*)$"</span>, ActiveView.as_view(), name=<span class="string">"active"</span>),</span><br></pre></td></tr></table></figure><h4 id="设置响应的点击发送后的链接对应的视图来处理事务"><a href="#设置响应的点击发送后的链接对应的视图来处理事务" class="headerlink" title="设置响应的点击发送后的链接对应的视图来处理事务"></a>设置响应的点击发送后的链接对应的视图来处理事务</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用itsdangerous库对用户ID进行解密</span></span><br><span class="line"><span class="keyword">from</span> itsdangerous <span class="keyword">import</span> TimedJSONWebSignatureSerializer <span class="keyword">as</span> Serializer</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ActiveView</span><span class="params">(View)</span>:</span></span><br><span class="line">    <span class="string">"""用户激活"""</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, request, token)</span>:</span></span><br><span class="line">        <span class="comment"># 用户激活</span></span><br><span class="line">        <span class="comment"># 进行解密， 获取激活信息</span></span><br><span class="line">        serializer = Serializer(settings.SECRET_KEY, <span class="number">3600</span>)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            info = serializer.loads(token)</span><br><span class="line">            user_id = info[<span class="string">"confirm"</span>]</span><br><span class="line">            <span class="comment"># 根据id获取用户信息</span></span><br><span class="line">            user = User.objects.get(id=user_id)</span><br><span class="line">            user.is_active = <span class="number">1</span></span><br><span class="line">            user.save()</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 跳转到登录页面</span></span><br><span class="line">            <span class="keyword">return</span> redirect(reverse(<span class="string">"user:login"</span>))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">except</span> SignatureExpired <span class="keyword">as</span> e:</span><br><span class="line">            <span class="comment"># 激活链接已经过期</span></span><br><span class="line">            <span class="keyword">return</span> HttpResponse(<span class="string">"激活链接已过期"</span>)</span><br></pre></td></tr></table></figure><p>本文中代码均是在Django2.0环境下写的，更换环境可能需要修改，而且部分内容与应用中其他内容呼应，比如登录注册等等，所以本文只用作记录，其他系统并不适用。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;摘要：今天对登录注册模块进行重新设计，增加了邮箱激活功能。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="毕业设计" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-      <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
-    
-      <category term="STMP" scheme="http://yoursite.com/tags/STMP/"/>
     
   </entry>
   
