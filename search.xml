@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>找出数组中的重复数字</title>
+    <url>/2020/03/12/%E6%89%BE%E5%87%BA%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E6%95%B0%E5%AD%97/</url>
+    <content><![CDATA[<blockquote>
+<p>在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。</p>
+</blockquote>
+<a id="more"></a>
+<p><strong>思路：</strong>选定一个数组中的值为初始值，然后进行循环比较，如果数组中有相等的值，然后返回这个值。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findRepeatNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.length;</span><br><span class="line">        <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[i]==nums[j])&#123;</span><br><span class="line">                    flag = nums[i];</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(flag!=<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> flag;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是这么做是很费时的，LeetCode上显示用时3602ms</p>
+<p>这道题的关键点是题目中的“<strong>数组 nums 里的所有数字都在 0～n-1 的范围内</strong>”，所以数组的元素值和下标是有一定关系的，可以通过这种关系进行求解，附上大神的解法：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 如果没有重复数字，那么正常排序后，数字i应该在下标为i的位置，所以思路是重头扫描数组，遇到下标为i的数字如果不是i的话，（假设为m),那么我们就拿与下标m的数字交换。在交换过程中，如果有重复的数字发生，那么终止返回ture</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findRepeatNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">            <span class="keyword">while</span> (nums[i]!=i)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]==nums[nums[i]])&#123;</span><br><span class="line">                    <span class="keyword">return</span> nums[i];</span><br><span class="line">                &#125;</span><br><span class="line">                temp=nums[i];</span><br><span class="line">                nums[i]=nums[temp];</span><br><span class="line">                nums[temp]=temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">作者：derrick_sun</span><br><span class="line">链接：https:<span class="comment">//leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/solution/yuan-di-zhi-huan-shi-jian-kong-jian-100-by-derrick/</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>剑指offer</category>
+      </categories>
+      <tags>
+        <tag>剑指offer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>39面试总结</title>
     <url>/2020/03/10/39%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<blockquote>
