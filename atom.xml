@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-09T12:09:58.218Z</updated>
+  <updated>2020-03-12T12:30:16.174Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,27 +17,46 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>39面试总结</title>
+    <link href="http://yoursite.com/2020/03/10/39%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2020/03/10/39%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/</id>
+    <published>2020-03-10T11:30:20.000Z</published>
+    <updated>2020-03-12T12:30:16.174Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>摘要：面试之前紧张得要死，准备了好多相关方面的问题，结果都没用到。。</p></blockquote><a id="more"></a><p>​        今天面试了石家庄一家公司的web前端工程师，因为之前一面的时候告诉我二面是技术面试，所以我还特意准备了一下，网上找了好多前端的面试题，HTML5的新特性，CSS3如何实现一些界面效果，jQuery相关知识点，Ajax的原理以及jsonp等等等等，因为是校招嘛，还准备了之前学的课程的一些技术点特地复习了一些，线程进程，数据库三大范式之类的。结果面试当天，包括人事在内的总共四位公司领导面试，一句专业性的技术问题都没有问，都是一些简历上的东西让描述一下，感觉一腔热血付诸东流😂。</p><p>​        可能之前没有接触过面试，上个学期一直在准备考研，没有实际去了解这些东西，对于校招不是很了解，可能因为是校招，也可能因为公司不是互联网相关的，对于技术方面不像专业互联网公司那样去考核。但是我内心还是很向往互联网公司的，包括工作方式，工作内容等等，所以还是准备学学Java基础或者Python基础，去找找真正的互联网公司应聘一下，接下来几天边做毕设边准备学习一下吧。</p><p>继续加油😠</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;摘要：面试之前紧张得要死，准备了好多相关方面的问题，结果都没用到。。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="web前端面试" scheme="http://yoursite.com/categories/web%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/"/>
+    
+      <category term="总结" scheme="http://yoursite.com/categories/web%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/%E6%80%BB%E7%BB%93/"/>
+    
+    
+      <category term="面试" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>38HTML基本知识</title>
     <link href="http://yoursite.com/2020/03/09/38HTML%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/"/>
     <id>http://yoursite.com/2020/03/09/38HTML%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/</id>
     <published>2020-03-09T12:04:54.000Z</published>
-    <updated>2020-03-09T12:09:58.218Z</updated>
+    <updated>2020-03-12T11:28:57.560Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>摘要：web前端面试HTML篇。</p></blockquote><ol><li>你是如何理解HTML语义化的？</li></ol><ul><li>比较简单的回答：我理解的语义化就是 标签用在合适的位置，比如段落要用<code>p</code>标签，标题要用<code>h1-h6</code>标签.</li><li>更细点的回答：我理解的HTML语义化是正确的标签做正确的事情，能够便于开发者阅读和写出更优雅的代码的同时，让网络爬虫更好的解析。</li></ul><ol start="2"><li>为什么要做到语义化？</li></ol><ul><li>有利于SEO，有利于搜索引擎爬虫更好的解析我们的页面，从而获取更多的有效信息，提升网页的权重。</li><li>在没有CSS的时候，能够清晰看出网页的结构，增强可读性。</li><li>便于团队合作开发和维护，提高开发效率</li></ul><ol start="3"><li><p>\&lt;!DOCTYPE> 文档声明，它不是HTML标签，是一个指示web浏览关于页面使用哪个HTML版本编写的指令。&lt;!DOCTYPE&gt; 声明必须位于文档的第一行，位于<html>标签之前。</html></p></li><li><p>\&lt;html lang=’en’>lang属性设定文档语言。</p><p>作用：SEO搜索引擎优化;有助于阅读障碍人士，通过读屏器阅读页面，还可以是\&lt;html lang=’zh-CN’></p></li><li><p>meta标签的几种用法。</p></li></ol><ul><li>meta指定文档编码</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这行代码的意思是，文档用UTF-8编码的，浏览器解析的时候用UTF-8编码解析。</span></span><br><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br></pre></td></tr></table></figure><ul><li>适配移动页面</li></ul><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span>  <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0"</span>&gt;</span></span><br></pre></td></tr></table></figure><ul><li>添加页面描述</li></ul><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">content</span>=<span class="string">"腾讯网(www.qq.com)是中国最浏览量最大的门户网站"</span>&gt;</span></span><br></pre></td></tr></table></figure><ol start="6"><li>HTML5标签。</li></ol><blockquote><p>内容性的标签:</p></blockquote><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span>          网页的头部</span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span>&gt;</span>                网页的导航</span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span>          标签定义文档中的节(比如章节、页眉、页脚或文档中的其他部分。)</span><br><span class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span>            标签的内容独立于文档的其余部分。比如外部的一篇文章，一个博客，论文等。</span><br><span class="line"><span class="tag">&lt;<span class="name">aside</span>&gt;</span>              网页侧边栏</span><br><span class="line"><span class="tag">&lt;<span class="name">footer</span>&gt;</span>            网页的页脚</span><br></pre></td></tr></table></figure><blockquote><p>功能性的标签</p></blockquote><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span>&gt;</span>  通过脚本绘制图像</span><br><span class="line"><span class="tag">&lt;<span class="name">Audio</span>&gt;</span>    播放音频</span><br><span class="line"><span class="tag">&lt;<span class="name">Video</span>&gt;</span>    播放视频</span><br></pre></td></tr></table></figure><ol start="7"><li>什么是H5？<br> H5是中国人制造的一个专有名词。实际上是指移动端页面，从某种意义上来说它是 HTML5，微信网页，移动PPT的母级。</li></ol>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>摘要：web前端面试HTML篇。</p></blockquote><a id="more"></a><ol><li>你是如何理解HTML语义化的？</li></ol><ul><li>比较简单的回答：我理解的语义化就是 标签用在合适的位置，比如段落要用<code>p</code>标签，标题要用<code>h1-h6</code>标签.</li><li>更细点的回答：我理解的HTML语义化是正确的标签做正确的事情，能够便于开发者阅读和写出更优雅的代码的同时，让网络爬虫更好的解析。</li></ul><ol start="2"><li>为什么要做到语义化？</li></ol><ul><li>有利于SEO，有利于搜索引擎爬虫更好的解析我们的页面，从而获取更多的有效信息，提升网页的权重。</li><li>在没有CSS的时候，能够清晰看出网页的结构，增强可读性。</li><li>便于团队合作开发和维护，提高开发效率</li></ul><ol start="3"><li><p>\&lt;!DOCTYPE> 文档声明，它不是HTML标签，是一个指示web浏览关于页面使用哪个HTML版本编写的指令。&lt;!DOCTYPE&gt; 声明必须位于文档的第一行，位于<html>标签之前。</html></p></li><li><p>\&lt;html lang=’en’>lang属性设定文档语言。</p><p>作用：SEO搜索引擎优化;有助于阅读障碍人士，通过读屏器阅读页面，还可以是\&lt;html lang=’zh-CN’></p></li><li><p>meta标签的几种用法。</p></li></ol><ul><li>meta指定文档编码</li></ul><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这行代码的意思是，文档用UTF-8编码的，浏览器解析的时候用UTF-8编码解析。</span></span><br><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br></pre></td></tr></table></figure><ul><li>适配移动页面</li></ul><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span>  <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0"</span>&gt;</span></span><br></pre></td></tr></table></figure><ul><li>添加页面描述</li></ul><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">content</span>=<span class="string">"腾讯网(www.qq.com)是中国最浏览量最大的门户网站"</span>&gt;</span></span><br></pre></td></tr></table></figure><ol start="6"><li>HTML5标签。</li></ol><blockquote><p>内容性的标签:</p></blockquote><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span>          网页的头部</span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span>&gt;</span>                网页的导航</span><br><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span>          标签定义文档中的节(比如章节、页眉、页脚或文档中的其他部分。)</span><br><span class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span>            标签的内容独立于文档的其余部分。比如外部的一篇文章，一个博客，论文等。</span><br><span class="line"><span class="tag">&lt;<span class="name">aside</span>&gt;</span>              网页侧边栏</span><br><span class="line"><span class="tag">&lt;<span class="name">footer</span>&gt;</span>            网页的页脚</span><br></pre></td></tr></table></figure><blockquote><p>功能性的标签</p></blockquote><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">canvas</span>&gt;</span>  通过脚本绘制图像</span><br><span class="line"><span class="tag">&lt;<span class="name">Audio</span>&gt;</span>    播放音频</span><br><span class="line"><span class="tag">&lt;<span class="name">Video</span>&gt;</span>    播放视频</span><br></pre></td></tr></table></figure><ol start="7"><li>什么是H5？<br> H5是中国人制造的一个专有名词。实际上是指移动端页面，从某种意义上来说它是 HTML5，微信网页，移动PPT的母级。</li></ol>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;blockquote&gt;
+      &lt;blockquote&gt;
 &lt;p&gt;摘要：web前端面试HTML篇。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;你是如何理解HTML语义化的？&lt;/li&gt;
-&lt;/ol&gt;
-&lt;ul&gt;
-&lt;li&gt;比较简单的回答：我理解的语义化就是 标签用在合适的位置，比如段落要用&lt;code&gt;p&lt;/c
-      
     
     </summary>
     
@@ -501,9 +520,9 @@
     
       <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
     
-      <category term="FastDFS" scheme="http://yoursite.com/tags/FastDFS/"/>
-    
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+      <category term="FastDFS" scheme="http://yoursite.com/tags/FastDFS/"/>
     
       <category term="Nginx" scheme="http://yoursite.com/tags/Nginx/"/>
     
@@ -532,38 +551,11 @@
     
       <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
     
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
       <category term="FastDFS" scheme="http://yoursite.com/tags/FastDFS/"/>
     
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
       <category term="Nginx" scheme="http://yoursite.com/tags/Nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>22Linux中部署项目环境</title>
-    <link href="http://yoursite.com/2020/02/22/22Linux%E4%B8%AD%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83/"/>
-    <id>http://yoursite.com/2020/02/22/22Linux%E4%B8%AD%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83/</id>
-    <published>2020-02-22T11:04:09.000Z</published>
-    <updated>2020-02-22T11:08:38.373Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>经常用Linux系统进行开发，但是没有专门记录过。今天买了阿里云的服务器准备把项目部署到云端，把部署环境的过程记录一下。</p></blockquote><a id="more"></a><p>安装环境</p><blockquote><p>系统版本：CentOS 7.6（自带Python2.7）<br>安装版本：Python3.6<br>安装插件：virtualenv、virtualenvwrapper</p></blockquote><h4 id="一、安装Python3"><a href="#一、安装Python3" class="headerlink" title="一、安装Python3"></a>一、安装Python3</h4><p>由于CentOS7原本就安装了Python2，而且这个Python2不能被删除，因为有很多系统命令，比如yum都要用到。所以我们要额外安装Python3。</p><p>我们先来查看python安装位置，一般是位于<code>/usr/bin/python</code>目录下。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ which python</span><br><span class="line">&gt;&gt; /usr/bin/python</span><br></pre></td></tr></table></figure><p>下面介绍安装Python3的方法：</p><p><strong>1. 安装依赖包</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ yum -y groupinstall &quot;Development tools&quot;</span><br><span class="line">$ yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel</span><br></pre></td></tr></table></figure><p><strong>2.下载Python3安装包</strong><br>我这里下载的是Python3.6.2</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://www.python.org/ftp/python/3.6.2/Python-3.6.2.tar.xz</span><br></pre></td></tr></table></figure><p><strong>3. 新建python3存放目录</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir /usr/<span class="built_in">local</span>/python3</span><br></pre></td></tr></table></figure><p><strong>4. 安装Python3</strong><br>解压压缩包，进入解压目录，指定安装目录，安装Python3。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ tar -xvJf  Python-3.6.2.tar.xz</span><br><span class="line">$ <span class="built_in">cd</span> Python-3.6.2</span><br><span class="line">$ ./configure --prefix=/usr/<span class="built_in">local</span>/python3</span><br><span class="line">$ make</span><br><span class="line">$ make install</span><br></pre></td></tr></table></figure><p>安装Python3时，会自动安装pip。假如没有，需要自己手动安装。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum -y install python-pip</span><br></pre></td></tr></table></figure><p><strong>5. 创建软链接</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ln -s /usr/<span class="built_in">local</span>/python3/bin/python3 /usr/bin/python3</span><br><span class="line">$ ln -s /usr/<span class="built_in">local</span>/python3/bin/pip3 /usr/bin/pip3</span><br></pre></td></tr></table></figure><p><strong>6. 安装完成，输入<code>python3</code>测试</strong></p><p><img src="/2020/02/22/22Linux中部署项目环境/1.png" alt="image-20200222184903576"></p><p>安装成功</p><h4 id="二、创建虚拟环境"><a href="#二、创建虚拟环境" class="headerlink" title="二、创建虚拟环境"></a>二、创建虚拟环境</h4><p><code>virtualenv</code>是一个可以在同一计算机中隔离多个python版本的工具。有时，两个不同的项目可能需要不同版本的python，如 python2.7 / python3.6 ，但是如果都装到一起，经常会导致问题。<code>virtualenv</code>能够用于创建独立的Python虚拟环境，多个Python相互独立，互不影响。<br><code>virtualenvwrapper</code>这个软件包可以让我们管理虚拟环境变得更加简单。不用再跑到某个目录下通过<code>virtualenv</code>来创建虚拟环境，并且激活的时候也要跑到具体的目录下去激活。</p><p>使用<code>pip</code>安装包前，先更新<code>pip</code>。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip3 install --upgrade pip</span><br></pre></td></tr></table></figure><p><strong>1. 安装virtualenv、virtualenvwrapper</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pip3 install virtualenv</span><br><span class="line">$ pip3 install virtualenvwrapper</span><br></pre></td></tr></table></figure><p><strong>2. 进入<code>.bashrc</code>文件中，定义<code>virtualenvwrapper</code>路径</strong></p><p>使用vim编辑<code>.bashrc</code>文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vim ~/.bashrc</span><br></pre></td></tr></table></figure><p>在文末填入以下代码并保存</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定virtualenvwrapper执行的python版本</span></span><br><span class="line"><span class="built_in">export</span> VIRTUALENVWRAPPER_PYTHON=/usr/<span class="built_in">local</span>/python3/bin/python3</span><br><span class="line"><span class="comment"># 指定虚拟环境存放目录</span></span><br><span class="line"><span class="built_in">export</span> WORKON_HOME=~/Envs    </span><br><span class="line"><span class="comment"># 指定virtualenv的目录</span></span><br><span class="line"><span class="built_in">export</span> VIRTUALENVWRAPPER_VIRTUALENV=/usr/loacl/python3/bin/virtualenv</span><br><span class="line"><span class="comment"># virtualenvwrapper.sh所在目录</span></span><br><span class="line"><span class="built_in">source</span> /usr/<span class="built_in">local</span>/python3/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure><p><strong>3. 运行<code>.bashrc</code>文件</strong></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure><p><strong>4. 创建虚拟环境</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkvirtualenv py3-env</span><br></pre></td></tr></table></figure><p>也可指定虚拟环境的python版本</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkvirtualenv --python=<span class="regexp">/usr/</span>local/python3/bin/python3 my_prj</span><br></pre></td></tr></table></figure><h4 id="导入项目所需的库文件"><a href="#导入项目所需的库文件" class="headerlink" title="导入项目所需的库文件"></a>导入项目所需的库文件</h4><p><strong>1. 进入虚拟环境中，然后进入到项目所在目录，安装好相应的包</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install -r requirements.txt</span><br></pre></td></tr></table></figure><p>附：自动生成项目安装包的依赖文件</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure><p>虚拟环境搭建完成！</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;经常用Linux系统进行开发，但是没有专门记录过。今天买了阿里云的服务器准备把项目部署到云端，把部署环境的过程记录一下。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="毕业设计" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-      <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
