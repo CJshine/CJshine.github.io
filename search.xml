@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>43又挖了个VUE的新坑</title>
+    <url>/2020/03/14/43%E5%8F%88%E6%8C%96%E4%BA%86%E4%B8%AAVUE%E7%9A%84%E6%96%B0%E5%9D%91/</url>
+    <content><![CDATA[<blockquote>
+<p>摘要：这个没学完，又要学习新的。。</p>
+</blockquote>
+<a id="more"></a>
+<p>今天把毕设的前端页面和手机端页面改了改，项目碰到个错误总是无法解决，很苦恼，已经快2个星期了，总是找不到原因。</p>
+<p>然后最近总感觉时间不够用了，前几天准备面试看了一些照招聘信息，发现自己差好多，然后网上找学习资料屯在收藏夹里，今天做毕设又发现还要用到VUE，虽然说不使用VUE的话也能实现效果，但是前后端不分离总是不方便，尤其涉及到移动端的时候，还是前后端分离实现起来比较容易。</p>
+<p>于是，又给自己挖了个新坑，VUE还是要学的，毕竟对找工作也有好处，我对前端比较感兴趣，喜欢亲手做出那种绚丽的感觉。</p>
+<p>明天继续加油！</p>
+]]></content>
+      <categories>
+        <category>毕业设计</category>
+        <category>VUE</category>
+      </categories>
+      <tags>
+        <tag>VUE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>找出数组中的重复数字</title>
     <url>/2020/03/12/%E6%89%BE%E5%87%BA%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E6%95%B0%E5%AD%97/</url>
     <content><![CDATA[<blockquote>
