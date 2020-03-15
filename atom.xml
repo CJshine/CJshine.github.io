@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-14T14:28:26.121Z</updated>
+  <updated>2020-03-15T14:15:34.486Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>44VUE的安装以及创建项目过程中遇到的问题</title>
+    <link href="http://yoursite.com/2020/03/15/44VUE%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2020/03/15/44VUE%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</id>
+    <published>2020-03-15T13:28:15.000Z</published>
+    <updated>2020-03-15T14:15:34.486Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>摘要：今天简单学了学VUE的安装和基本语法，记录一下遇到的问题。</p></blockquote><a id="more"></a><h4 id="安装脚手架"><a href="#安装脚手架" class="headerlink" title="安装脚手架"></a>安装脚手架</h4><p>cnpm install -g vue-cli</p><h4 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h4><p>vue init webpack huaxi</p><h4 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h4><h5 id="搭建vue项目（vue-init-webpack）时报错-vue-cli-•-Failed-to-download-repo-vuejs-templates-webpack-unable-to-verifythe-first-certificate"><a href="#搭建vue项目（vue-init-webpack）时报错-vue-cli-•-Failed-to-download-repo-vuejs-templates-webpack-unable-to-verifythe-first-certificate" class="headerlink" title="搭建vue项目（vue init webpack）时报错 vue-cli • Failed to download repo vuejs-templates/webpack: unable to verifythe first certificate"></a>搭建vue项目（vue init webpack）时报错 vue-cli • Failed to download repo vuejs-templates/webpack: unable to verifythe first certificate</h5><p>其实就是网络不好，下载webpack失败</p><h4 id="解决办法就是下载webpack到本地，线下创建"><a href="#解决办法就是下载webpack到本地，线下创建" class="headerlink" title="解决办法就是下载webpack到本地，线下创建"></a>解决办法就是下载webpack到本地，线下创建</h4><ol><li><a href="https://github.com/vuejs-templates/webpack" target="_blank" rel="noopener">https://github.com/vuejs-templates/webpack</a> 下载webpack文件</li><li>在C盘找.vue-templates文件夹，如果没有就在C:\User\Administrator下创建一个.vue-templates文件夹</li><li>把下载的webpack文件解压到.vue-templates文件夹里边，重命名为webpack</li><li>在想要创建VUE项目的文件夹里打开cmd，输入vue init webpack huaxi –offline</li></ol><p>offline就是使用线下webpack创建的意思</p><h4 id="创建过程："><a href="#创建过程：" class="headerlink" title="创建过程："></a>创建过程：</h4><p><img src="/2020/03/15/44VUE的安装以及创建项目过程中遇到的问题/1.png" alt="image-20200315151532307"></p><p>Project name(项目名称)</p><p>Project description(项目介绍)</p><p>Author(作者，这里不知道怎么回事自动获取到了我的github昵称和邮箱…)</p><p>Vue build(打包方式，回车即可)</p><p>Install vue-router(是否要安装 vue-router，项目中肯定要使用到，Y 回车)</p><p>Use ESLint to lint your code（是否需要 js 语法检测，不需要，所以 n 回车)</p><p>Set up unit tests(是否安装单元测试工具，不需要，n 回车)</p><p>Setup e2e tests with Nightwatch(是否需要端到端测试工具，不需要，n回车)</p><p>Should we run <code>npm install</code> for you after the project has been created(是否需要npm install，不需要，我们使用cnpm install，选第三项回车)</p><h4 id="进入项目文件夹"><a href="#进入项目文件夹" class="headerlink" title="进入项目文件夹"></a>进入项目文件夹</h4><p>cnpm install</p><p>npm run dev</p><p>浏览器打开<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a></p><p><img src="/2020/03/15/44VUE的安装以及创建项目过程中遇到的问题/2.png" alt="image-20200315152345349"></p><h5 id="npm换到淘宝源cnpm方法："><a href="#npm换到淘宝源cnpm方法：" class="headerlink" title="npm换到淘宝源cnpm方法："></a>npm换到淘宝源cnpm方法：</h5><p><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;摘要：今天简单学了学VUE的安装和基本语法，记录一下遇到的问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="毕业设计" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="VUE" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/VUE/"/>
+    
+    
+      <category term="VUE" scheme="http://yoursite.com/tags/VUE/"/>
+    
+  </entry>
   
   <entry>
     <title>43又挖了个VUE的新坑</title>
@@ -515,35 +542,6 @@
       <category term="FastDFS" scheme="http://yoursite.com/tags/FastDFS/"/>
     
       <category term="Nginx" scheme="http://yoursite.com/tags/Nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>24Python与FDFS交互时遇到的问题</title>
-    <link href="http://yoursite.com/2020/02/24/24Python%E4%B8%8EFDFS%E4%BA%A4%E4%BA%92%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2020/02/24/24Python%E4%B8%8EFDFS%E4%BA%A4%E4%BA%92%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</id>
-    <published>2020-02-24T11:59:16.000Z</published>
-    <updated>2020-02-24T12:50:03.211Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>今天使用python在本地和服务器的FastDFS进行交互，遇到了几个问题，记录一下。</p></blockquote><a id="more"></a><h4 id="python与FDFS交互时报错"><a href="#python与FDFS交互时报错" class="headerlink" title="python与FDFS交互时报错"></a>python与FDFS交互时报错</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> fdfs_client.client <span class="keyword">import</span> Fdfs_client</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>client = Fdfs_client(<span class="string">'/etc/fdfs/client.conf'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ret = client.upload_by_filename(<span class="string">'test'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ret</span><br><span class="line">&#123;<span class="string">'Group name'</span>:<span class="string">'group1'</span>,<span class="string">'Status'</span>:<span class="string">'Upload successed.'</span>, <span class="string">'Remote file_id'</span>:<span class="string">'group1/M00/00/00/</span></span><br><span class="line"><span class="string">wKjzh0_xaR63RExnAAAaDqbNk5E1398.py'</span>,<span class="string">'Uploaded size'</span>:<span class="string">'6.0KB'</span>,<span class="string">'Local file name'</span>:<span class="string">'test'</span></span><br><span class="line">, <span class="string">'Storage IP'</span>:<span class="string">'192.168.243.133'</span>&#125;</span><br></pre></td></tr></table></figure><p>在测试FDFS与python交互时，输入以上代码，这是官方文档的代码，当我输入<br>ret = client.upload_by_filename(‘test’)后，就报错了。</p><p>错误如下：<br>Traceback (most recent call last):<br>File “”, line 1, in<br>File “/root/.virtualenvs/Cole_py3/lib/python3.6/site-packages/fdfs_client/client.py”, line 88, in upload_by_filename<br>raise DataError(errmsg + ‘(uploading)’)<br>fdfs_client.exceptions.DataError: [-] Error: test1 is not a file.(uploading)</p><p>主要还是太天真了，以为按照官方测试代码输入就没错，后来查看了client.py的代码，才发现，ret = client.upload_by_filename(’ ‘) 括号里面填写的是要在你本机存在的文件名或者文件路径<br>ret = client.upload_by_filename(’ /home/cole/python/test/test1.py ‘)<br>ret = client.upload_by_filename(’ test1.py ‘)<br>这两种写法都可以，前提是test1.py是要存在你本机</p><h4 id="type-object-argument-after-must-be-a-mapping-not-str"><a href="#type-object-argument-after-must-be-a-mapping-not-str" class="headerlink" title="type object argument after ** must be a mapping, not str"></a>type object argument after ** must be a mapping, not str</h4><p>django自定义fdfs文件存储时报了这个错误。</p><p>创建client实例对象的时候不能直接传入配置文件的地址字符串,否则报错.<br>错误代码:TypeError: type object argument after ** must be a mapping, not str</p><p>解决办法：通过模块内<strong>get_tracker_conf</strong>函数, 获取配置文件后传入。</p><p>原代码：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fdfs_client.client <span class="keyword">import</span> Fdfs_client</span><br><span class="line">client = （./utils/fdfs/client.con<span class="string">f')</span></span><br><span class="line"><span class="string">ret = client.upload_by_buffer(content.read())</span></span><br></pre></td></tr></table></figure><p>修改后代码：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fdfs_client.client <span class="keyword">import</span> Fdfs_client, get_tracker_conf</span><br><span class="line">　　tracker_path = get_tracker_conf(<span class="string">'./utils/fdfs/client.conf'</span>)</span><br><span class="line">　　client = Fdfs_client(tracker_path)</span><br><span class="line">　　ret = client.upload_by_buffer(content.read())</span><br></pre></td></tr></table></figure><h4 id="python3使用fdfs上传文件时报str-returned-non-string-type-bytes-错误"><a href="#python3使用fdfs上传文件时报str-returned-non-string-type-bytes-错误" class="headerlink" title="python3使用fdfs上传文件时报str returned non-string (type bytes)错误"></a>python3使用fdfs上传文件时报<strong>str</strong> returned non-string (type bytes)错误</h4><p>上传成功后返回一个字典, 其中’Remote file_id’键对应的值由旧版模块string类型更改为byte类型。所以, 返回的文件id是byte类型，</p><p>原代码：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">filename = result.get(<span class="string">'Remote file_id'</span>)</span><br><span class="line"><span class="keyword">return</span> filename</span><br></pre></td></tr></table></figure><p>修改后代码：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">filename = result.get(<span class="string">'Remote file_id'</span>)</span><br><span class="line"><span class="keyword">return</span> filename.decode()</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;今天使用python在本地和服务器的FastDFS进行交互，遇到了几个问题，记录一下。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="毕业设计" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
-    
-      <category term="问题总结" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/%E9%97%AE%E9%A2%98%E6%80%BB%E7%BB%93/"/>
-    
-    
-      <category term="毕业设计" scheme="http://yoursite.com/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
-    
-      <category term="FastDFS" scheme="http://yoursite.com/tags/FastDFS/"/>
     
   </entry>
   
