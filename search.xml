@@ -1,6 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>45VUE的入门笔记</title>
+    <url>/2020/03/16/45VUE%E7%9A%84%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<blockquote>
+<p>摘要：感觉VUE挺简单的。。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="new-Vue-是创建了一个Vue实例"><a href="#new-Vue-是创建了一个Vue实例" class="headerlink" title="new Vue 是创建了一个Vue实例;*"></a>new Vue 是创建了一个Vue实例;*</h4><p> el: ‘#app’意思是让Vue实例去接管id为’app’的div里面的内容,即为Vue实例和这个div的Dom元素做了绑定,el绑定的div为挂载  点</p>
+<p> data : 就是vue的一些数据</p>
+<p>直接通过双花括号的形式显示在data里的的数据</p>
+<h4 id="Vue的常用指令"><a href="#Vue的常用指令" class="headerlink" title="Vue的常用指令"></a>Vue的常用指令</h4><p>Vue指令以v-开头，作用在HTML元素上，将指令绑定在元素上时，会给绑定的元素添加一些特殊行为，可将指令视作特殊的HTML属性</p>
+<p> <strong>v-model</strong> 在表单元素上实现双向绑定</p>
+<p> <strong>v-if</strong>  条件判断指令，根据表达式值的真假来插入或删除元素，表达式返回一个布尔值</p>
+<p> <strong>v-show</strong> 条件渲染指令，与v-if不同的是，无论v-show的值为true或false，元素都会存在于HTML代码中；而只有当v-if   的值为true，元素才会存在于HTML代码中。v-show指令只是设置了元素CSS的style值</p>
+<p><strong>v-else</strong> 可配合v-if或v-show使用，v-else指令必须紧邻v-if或v-show，否则该命令无法正常工作。v-else绑定的元素能否  渲染在HTML中，取决于前面使用的是v-if还是v-show。若前面使用的是v-if，且v-if值为true，则v-else元素不会渲染；若前面使用的是v-show，且v-show值为true，则v-else元素仍会渲染到HTML。  </p>
+<p><strong>v-for</strong>  循环指令，基于一个数组渲染一个列表，与JavaScript遍历类似，语法如下：</p>
+<p>​    v-for = “item in items”</p>
+<p><strong>v-bind</strong>  给DOM绑定元素属性，语法如下：</p>
+<p>​    v-bind:argument=”expression”</p>
+<p>其中，argument通常是HTML元素的特性，如：<code>v-bind:  class = &quot;expression&quot;</code>。</p>
+<p>注：v-bind指令可以缩写为:冒号。如：<code>:class=&quot;expression&quot;</code>。</p>
+<p><strong>v-on</strong>  用于监听DOM事件，语法与v-bind类似，如监听点击事件v-on:click=”doSth”</p>
+<p>​    注：v-on指令可以缩写为@符号。如：@click=”doSth”。 </p>
+<p>Vue的键盘事件</p>
+<blockquote>
+<!--@keydown.xx,点什么键,就是按下什么键触发事件-->
+<p><input @keydown.enter="keyEnter()">  //按下回车键即触发事件</p>
+<p><input @keydown.a="kerA()">  //按下键盘的A键</p>
+</blockquote>
+<h4 id="Vue的事件冒泡"><a href="#Vue的事件冒泡" class="headerlink" title="Vue的事件冒泡"></a>Vue的事件冒泡</h4><p>  什么是事件冒泡: 在div的层层嵌套中,触发最里面的事件,会相继触发一层层的事件,即为事件冒泡</p>
+<p>  阻止冒泡: 给事件添加@click=”show($event)”</p>
+<blockquote>
+<p>show: function (e) {</p>
+<p>   alert(“this is 3”);</p>
+<p>   e.stopPropagation(); //阻止</p>
+<p>​                    }</p>
+</blockquote>
+<p>或者直接@click.stop=”show($event)”,就不用写e.stopPropagation();</p>
+<blockquote>
+<!--阻止事件默认方法-->
+<button @click.prevent.stop="show()">text</button>
+</blockquote>
+<h4 id="methods-Vue方法"><a href="#methods-Vue方法" class="headerlink" title="methods: Vue方法"></a>methods: Vue方法</h4><blockquote>
+<p> methods: {</p>
+<p>  //这个是要执行的函数</p>
+<p>   hello: function() { }</p>
+<p>}</p>
+</blockquote>
+<p> methods里面放vue的方法</p>
+<h4 id="钩子函数-mounted"><a href="#钩子函数-mounted" class="headerlink" title="钩子函数 :mounted"></a>钩子函数 :mounted</h4><p>  对于前端来说，钩子函数就是指在所有函数执行前，我先执行了的函数，即 钩住 我感兴趣的函数，只要它执行，我就先执行。</p>
+<blockquote>
+<p>mounted: function() {</p>
+<p>  //这个是钩子函数 ,如果hello函数要执行，必须先执行钩子函数 </p>
+<p>}</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>毕业设计</category>
+        <category>VUE</category>
+      </categories>
+      <tags>
+        <tag>VUE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>44VUE的安装以及创建项目过程中遇到的问题</title>
     <url>/2020/03/15/44VUE%E7%9A%84%E5%AE%89%E8%A3%85%E4%BB%A5%E5%8F%8A%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<blockquote>
