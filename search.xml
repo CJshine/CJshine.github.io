@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>46VUE的父子组件传值</title>
+    <url>/2020/03/17/46VUE%E7%9A%84%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/</url>
+    <content><![CDATA[<blockquote>
+<p>摘要：专业做前端的工具，真香啊。。。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="组件传值"><a href="#组件传值" class="headerlink" title="组件传值"></a>组件传值</h4><ol>
+<li>父组件向子组件传值，首先需要给DOM节点绑定属性，使用<code>v-bind:title=&quot;title&quot;</code>的方式动态增加属性，然后需要注意的几点是：</li>
+</ol>
+<ul>
+<li>组件实例的作用域是孤立的；</li>
+<li>子组件要显式的用<code>props</code>选项声明它预期的数据，如：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 某个子组件中：</span><br><span class="line">export default &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    title: &#123;</span><br><span class="line">      type: String,</span><br><span class="line">      default: &apos;hello world&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后就可以在页面中使用了。以上就是<code>单向数据流</code>的一般表现了： 父级 prop 的更新会向下流动到子组件中，但是反过来则不行。</p>
+<ol start="2">
+<li>子组件通过<code>事件</code>给父组件发送信息。</li>
+</ol>
+<p>每个Vue实例都实现了事件接口：使用<code>$on(evntName)</code>监听事件；使用<code>$emit(eventName,optionalPayload)</code>触发事件。另外，父组件可以在使用子组件的地方直接用<code>v-on</code>来监听子组件触发的事件。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- 父组件 --&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div class=&quot;test&quot;&gt;</span><br><span class="line">      &lt;test-com @childFn=&quot;parentFn&quot;&gt;&lt;/test-com&gt;</span><br><span class="line">      &lt;br/&gt; </span><br><span class="line">      子组件传来的值 : &#123;&#123;message&#125;&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    // ...</span><br><span class="line">    data: &#123;</span><br><span class="line">        message: &apos;&apos;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">       parentFn(payload) &#123;</span><br><span class="line">        this.message = payload;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;VUE</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!-- 子组件 --&gt;</span><br><span class="line">&lt;template&gt; </span><br><span class="line">&lt;div class=&quot;testCom&quot;&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; v-model=&quot;message&quot; /&gt;</span><br><span class="line">    &lt;button @click=&quot;click&quot;&gt;Send&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    // ...</span><br><span class="line">    data() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">          // 默认</span><br><span class="line">          message: &apos;我是来自子组件的消息&apos;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      click() &#123;</span><br><span class="line">            this.$emit(&apos;childFn&apos;, this.message);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>毕业设计</category>
+        <category>VUE</category>
+      </categories>
+      <tags>
+        <tag>VUE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>45VUE的入门笔记</title>
     <url>/2020/03/16/45VUE%E7%9A%84%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<blockquote>
