@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-18T14:15:07.701Z</updated>
+  <updated>2020-03-19T14:04:23.337Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>47VUEX的使用</title>
+    <link href="http://yoursite.com/2020/03/19/47VUEX%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/2020/03/19/47VUEX%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
+    <published>2020-03-19T13:54:55.000Z</published>
+    <updated>2020-03-19T14:04:23.337Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>VUE全家桶真多啊。。</p></blockquote><h4 id="vuex创建"><a href="#vuex创建" class="headerlink" title="vuex创建"></a>vuex创建</h4><ol><li><p>src目录下新建一个vuex的文件夹</p></li><li><p>vuex文件夹里面新建一个store.js</p></li><li><p>安装vuex</p><ul><li>cnpm install vuex –save</li></ul></li><li><p>在store.js中引入vue  引入vuex并且use vuex</p><ul><li><p>import Vue from ‘vue’</p><p>import Vuex from ‘vuex’</p><p>Vue.use(Vuex)</p></li></ul></li><li><p>定义数据</p><ul><li><p>state在vuex中用于存储数据</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var state=&#123;</span><br><span class="line">count:1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul></li><li><p>定义方法</p><ul><li><p>mutation里面放的是方法，主要用于改变state里面的数据</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var mutation&#123;</span><br><span class="line">incCount()&#123;</span><br><span class="line">++state.count;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>暴露</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const store = new Vuex.Store(&#123;</span><br><span class="line">state,</span><br><span class="line">mutations</span><br><span class="line">&#125;)</span><br><span class="line">export default store;</span><br></pre></td></tr></table></figure></li></ul></li></ol><h4 id="vuex数据使用"><a href="#vuex数据使用" class="headerlink" title="vuex数据使用"></a>vuex数据使用</h4><ol><li><p>在其他页面引入store</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import store from &apos;../vuex/store.js&apos;</span><br></pre></td></tr></table></figure></li><li><p>注册</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export default&#123;</span><br><span class="line">······</span><br><span class="line">store，</span><br><span class="line">······</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>使用数据</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;this.$store.state.count&#125;&#125;</span><br></pre></td></tr></table></figure></li><li><p>使用方法</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;button @click=&apos;addCount&apos;&gt;点击增加数据&lt;/button&gt;</span><br><span class="line">export default&#123;</span><br><span class="line">···</span><br><span class="line">methods：&#123;</span><br><span class="line">addCount()&#123;</span><br><span class="line">//改变vuex store里面的数据</span><br><span class="line">this.$store.commit(&apos;incCount&apos;);  //触发state里面的数据</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol><h4 id="Getters操作数据"><a href="#Getters操作数据" class="headerlink" title="Getters操作数据"></a>Getters操作数据</h4><p>改变state里面的count数据的时候会触发getters里面的方法，获取新的值</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var getters=&#123;</span><br><span class="line">computedCount:(state)=&gt;&#123;</span><br><span class="line">return state.count*2; </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>使用数据</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; this.$store.getters.computedCount &#125;&#125;</span><br></pre></td></tr></table></figure><h4 id="Action"><a href="#Action" class="headerlink" title="Action"></a>Action</h4><p>Action 类似于 mutation，不同在于：</p><ul><li>Action 提交的是 mutation，而不是直接变更状态。</li><li>Action 可以包含任意异步操作，突破了mutation只能同步执行的限制。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;VUE全家桶真多啊。。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;vuex创建&quot;&gt;&lt;a href=&quot;#vuex创建&quot; class=&quot;headerlink&quot; title=&quot;vuex创建&quot;&gt;&lt;/a&gt;vuex创建&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p
+      
+    
+    </summary>
+    
+    
+      <category term="毕业设计" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+      <category term="VUE" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/VUE/"/>
+    
+    
+      <category term="VUE" scheme="http://yoursite.com/tags/VUE/"/>
+    
+  </entry>
   
   <entry>
     <title>46VUE中index.html，App.vue，main.js之间的关系</title>
@@ -516,36 +548,6 @@
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
       <category term="Anaconda3" scheme="http://yoursite.com/tags/Anaconda3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>26CentOS7上安装MySQL</title>
-    <link href="http://yoursite.com/2020/02/26/26CentOS7%E4%B8%8A%E5%AE%89%E8%A3%85MySQL/"/>
-    <id>http://yoursite.com/2020/02/26/26CentOS7%E4%B8%8A%E5%AE%89%E8%A3%85MySQL/</id>
-    <published>2020-02-26T13:23:29.000Z</published>
-    <updated>2020-02-26T14:08:53.801Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>摘要：安装了一遍居然出错了，只能卸载再安一遍记录一下。</p><p>最近发现做东西总要出错，明明很简单的配置过程总要出点问题，偶尔顺利一次都要怀疑到底对不对。</p></blockquote><a id="more"></a><h4 id="为防止安装失败，先说卸载"><a href="#为防止安装失败，先说卸载" class="headerlink" title="为防止安装失败，先说卸载"></a>为防止安装失败，先说卸载</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看yum是否安装过mysql</span></span><br><span class="line">$ yum list installed mysql*</span><br></pre></td></tr></table></figure><p>如果显示了列表，说明系统中有MySQL。</p><p>根据列表上的名字进行yum卸载</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ yum remove mysql-community-client mysql-community-common mysql-community-libs mysql-community-libs-compat mysql-community-server mysql57-community-release</span><br><span class="line"></span><br><span class="line">$ rm -rf /var/lib/mysql  </span><br><span class="line">$ rm /etc/my.cnf</span><br></pre></td></tr></table></figure><ol start="2"><li>rpm查看安装</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rpm -qa | grep -i mysql</span><br></pre></td></tr></table></figure><p>根据列表上的名字进行rpm卸载</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ rpm -ev mysql57-community-release-el7-9.noarch</span><br><span class="line">$ rpm -ev mysql-community-server-5.7.17-1.el7.x86_64</span><br><span class="line">$ rpm -ev mysql-community-libs-5.7.17-1.el7.x86_64</span><br><span class="line">$ rpm -ev mysql-community-libs-compat-5.7.17-1.el7.x86_64</span><br><span class="line">$ rpm -ev mysql-community-common-5.7.17-1.el7.x86_64</span><br><span class="line">$ rpm -ev mysql-community-client-5.7.17-1.el7.x86_64</span><br><span class="line"></span><br><span class="line">$ <span class="built_in">cd</span> /var/lib/  </span><br><span class="line">$ rm -rf mysql/</span><br></pre></td></tr></table></figure><p>注意：这里有可能会抛依赖错误 error:Failed dependencies:，则加上 –nodeps不检查依赖关系删除，命令如下：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ rpm -e --nodeps mysql-community-server-5.7.17-1.el7.x86_64</span><br></pre></td></tr></table></figure><p>清除余项</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ whereis mysql</span><br><span class="line">mysql: /usr/bin/mysql /usr/lib64/mysql /usr/<span class="built_in">local</span>/mysql /usr/share/mysql /usr/share/man/man1/mysql.1.gz</span><br><span class="line"><span class="comment"># 删除上面的文件夹</span></span><br><span class="line">$ rm -rf /usr/bin/mysql</span><br><span class="line">…</span><br><span class="line">…</span><br></pre></td></tr></table></figure><p>删除配置</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ rm –rf /usr/my.cnf</span><br><span class="line">$ rm -rf /root/.mysql_sercret</span><br></pre></td></tr></table></figure><p>剩余配置检查</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ chkconfig --list | grep -i mysql</span><br><span class="line">$ chkconfig --del mysqld</span><br></pre></td></tr></table></figure><p>根据上面的列表，删除 , 如：mysqld</p><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><ol><li>安装软件源</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://repo.mysql.com/mysql57-community-release-el7-9.noarch.rpm</span><br><span class="line">$ rpm -ivh mysql57-community-release-el7-9.noarch.rpm</span><br></pre></td></tr></table></figure><ol start="2"><li>接下来使用yum安装</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新yum软件包</span></span><br><span class="line">$ yum check-update  </span><br><span class="line"><span class="comment"># 更新系统 </span></span><br><span class="line">$ yum update</span><br><span class="line"> <span class="comment">#安装mysql</span></span><br><span class="line">$ yum install mysql mysql-server</span><br></pre></td></tr></table></figure><ol start="3"><li>安装完成后启动服务</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ service start mysqld</span><br><span class="line">$ systemctl start mysqld.service</span><br></pre></td></tr></table></figure><ol start="4"><li>查看MySQL的运行状态</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ service mysqld status</span><br><span class="line">$ systemctl status mysqld.service</span><br></pre></td></tr></table></figure><ol start="5"><li>获取MySQL的默认密码</li></ol><p>MySQL5.7安装完成后为root用户随机生成了一个密码，在error log中，关于error log的位置，如果安装的是RPM包，则默认是/var/log/mysqld.log。<br>只有启动过一次mysql才可以查看临时密码。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ grep <span class="string">'temporary password'</span> /var/<span class="built_in">log</span>/mysqld.log</span><br></pre></td></tr></table></figure><p><img src="/2020/02/26/26CentOS7上安装MySQL/1.png" alt="image-20200226214404829"></p><p>我这里的密码是rMThio2k&gt;aWp</p><ol start="6"><li>使用默认密码登录并修改密码</li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -u root -p</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER USER &apos;root&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;root&apos;;</span><br></pre></td></tr></table></figure><p>如果密码太简单，会出现一个错误<code>ERROR 1819 (HY000): Your password does not satisfy the current policy requirements</code>,对于这个错误，可以修改两个参数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; set global validate_password_policy=0; </span><br><span class="line">mysql&gt; set global validate_password_length=1;</span><br></pre></td></tr></table></figure><p>再次执行修改密码就可以了</p><ol start="7"><li>授权可以外网访问MySQL</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; GRANT ALL PRIVILEGES ON *.* TO &apos;root&apos;@&apos;%&apos; IDENTIFIED BY &apos;mypassword&apos; WITH GRANT OPTION;</span><br><span class="line">mysql&gt; FLUSH  PRIVILEGES;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;摘要：安装了一遍居然出错了，只能卸载再安一遍记录一下。&lt;/p&gt;
-&lt;p&gt;最近发现做东西总要出错，明明很简单的配置过程总要出点问题，偶尔顺利一次都要怀疑到底对不对。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-    
-      <category term="毕业设计" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
-    
-      <category term="学习笔记" scheme="http://yoursite.com/categories/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
     
   </entry>
   
